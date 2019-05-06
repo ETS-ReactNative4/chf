@@ -1,0 +1,18 @@
+#import "./sfyProductFull.graphql"
+
+query products($query: String, $first: Int, $after: String) {
+  sfy_shop {
+    products(query: $query, first: $first, after: $after) {
+      edges {
+        cursor
+        node {
+          ...ProductFull
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}

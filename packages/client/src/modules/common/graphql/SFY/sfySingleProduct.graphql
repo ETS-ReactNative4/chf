@@ -1,0 +1,7 @@
+#import "./sfyProductFull.graphql"
+
+query singleProduct($id: ID!) {
+  sfy_node(id: $id) {
+    ...ProductFull
+  }
+}

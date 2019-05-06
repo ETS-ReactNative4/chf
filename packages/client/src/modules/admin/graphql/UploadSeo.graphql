@@ -1,0 +1,8 @@
+mutation uploadSeo($path: String!, $handle: String!, $seo: SeoInput!) {
+  uploadSeo(path: $path, handle: $handle, seo: $seo) {
+    handle
+    title
+    description
+    keywords
+  }
+}

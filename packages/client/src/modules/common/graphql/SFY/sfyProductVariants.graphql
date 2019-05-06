@@ -1,0 +1,7 @@
+#import "./sfyVariants.graphql"
+
+fragment ProductVariants on sfy_Product {
+  variants(first: 20) {
+    ...VariantInfo
+  }
+}

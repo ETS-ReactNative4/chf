@@ -1,0 +1,13 @@
+fragment AdminProductInfo on sfy_Product {
+  id
+  handle
+  title
+  vendor
+  variants(first: 3) {
+    edges {
+      node {
+        sku
+      }
+    }
+  }
+}

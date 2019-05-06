@@ -1,0 +1,7 @@
+fragment ProductSeoFull on Product {
+  seo {
+    description
+    meta_keywords
+    title_tag
+  }
+}

@@ -1,0 +1,9 @@
+#import "./sfyCollections.graphql"
+
+query storeCollections($query: String, $first: Int, $after: String) {
+  sfy_shop {
+    collections(query: $query, first: $first, after: $after) {
+      ...CollectionInfo
+    }
+  }
+}

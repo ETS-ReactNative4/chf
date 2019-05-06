@@ -1,0 +1,7 @@
+fragment Options on sfy_Product {
+  options {
+    id
+    name
+    values
+  }
+}

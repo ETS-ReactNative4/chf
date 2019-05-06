@@ -1,0 +1,44 @@
+@import '../../common/components/global/styles/utils/index';
+
+.locations-view {
+  @import 'loading-icon';
+  @include flex(row, wrap);
+  @include md {
+    max-height: calc(100vh - #{$headerHeight});
+  }
+  overflow: hidden;
+
+  &__sidebar {
+    @include md {
+      flex-basis: 50%;
+      height: calc(100vh - #{$headerHeight});
+    }
+    @include lg {
+      flex-basis: 33.33%;
+    }
+    position: relative;
+    flex-basis: 100%;
+    overflow-y: auto;
+  }
+  &__search {
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+  }
+  &__list {
+    z-index: 40;
+  }
+  &__map {
+    @include md {
+      flex-basis: 50%;
+      order: 0; // sass-lint:disable-line zero-unit
+      height: calc(100vh - #{$headerHeight});
+    }
+    @include lg {
+      flex-basis: 66.66%;
+    }
+    flex-basis: 100%;
+    height: calc(75vh - #{$headerHeight});
+    order: -1;
+  }
+}

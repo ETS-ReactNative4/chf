@@ -1,0 +1,22 @@
+#import "./sfyCategory.graphql"
+#import "./sfyProductFull.graphql"
+
+query singleCategory($id: ID!, $first: Int = 12, $after: String) {
+  sfy_node(id: $id) {
+    ...CategoryFull
+    ... on sfy_Collection {
+      products(first: $first, after: $after) {
+        edges {
+          cursor
+          node {
+            ...ProductFull
+          }
+        }
+        pageInfo {
+          hasNextPage
+          hasPreviousPage
+        }
+      }
+    }
+  }
+}

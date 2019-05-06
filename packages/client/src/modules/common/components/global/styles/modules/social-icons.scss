@@ -1,0 +1,21 @@
+@import '../utils/index';
+
+.social-icons {
+  @include flex(row);
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  &__link {
+    display: block;
+    position: relative;
+    height: 25px;
+    margin-right: 1em;
+    width: 25px;
+  }
+  &__icon,
+  // TODO: remove once context provider works
+  &__link svg {
+    @include absoluteCenter;
+    vertical-align: top;
+    width: 100%;
+  }
+}

@@ -1,0 +1,7 @@
+#import "./ProductFields.graphql"
+fragment ProductLayoutFull on Product {
+  layout {
+    section_name
+    ...ProductFieldsFull
+  }
+}

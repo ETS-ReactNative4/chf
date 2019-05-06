@@ -1,0 +1,59 @@
+@import '../../common/components/global/styles/utils/index';
+
+.search-box {
+  @include flex(row, nowrap);
+  @include md {
+    font-size: 2.5em;
+    width: 75vw;
+  }
+  @include lg {
+    font-size: 3em;
+    width: 50vw;
+  }
+  position: relative;
+  margin: 0em auto;
+  align-items: center;
+  font-size: 1.5em;
+  width: 90vw;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: 0em;
+    left: 0em;
+    height: 1px;
+  }
+  &:before {
+    background-color: $brandSecondary;
+    width: 100%;
+    z-index: 1;
+  }
+  &:after {
+    background-color: $brandPrimary;
+    width: 0%;
+    z-index: 5;
+  }
+  &:focus-within {
+    &:after {
+      transition: width $animationSpeed ease-in-out;
+      width: 100%;
+    }
+  }
+  &__link {
+    padding: 0.5em 1em;
+    svg {
+      path {
+        color: $brandSecondary;
+        transition: color $animationSpeed ease-in-out;
+      }
+    }
+    &:hover {
+      svg {
+        path {
+          color: $brandPrimary;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import '../utils/index';
+
+.vendor-list {
+  @include flex(row, wrap);
+  padding: 1em 2em;
+  justify-content: center;
+  &--xsmall {
+    justify-content: center;
+    .vendor-list {
+      &__link {
+        flex-basis: calc(100% - 2em);
+      }
+    }
+  }
+  &--small {
+    .vendor-list {
+      &__link {
+        flex-basis: calc(33.33% - 2em);
+      }
+    }
+  }
+  &--medium {
+    .vendor-list {
+      &__link {
+        // flex-basis: calc(25% - 2em);
+        flex-basis: calc(16.66% - 2em);
+      }
+    }
+  }
+  &--large {
+    .vendor-list {
+      &__link {
+        flex-basis: calc(16.66% - 2em);
+      }
+    }
+  }
+  &__link {
+    @include shadow(bottom, center, 15px);
+    position: relative;
+    margin: 1em;
+    padding: 1em 0em;
+    background-color: $white;
+    min-height: 100px;
+    max-height: 100%;
+  }
+  &__image {
+    position: absolute;
+    left: 50%;
+    max-height: 100%;
+    top: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+  }
+}

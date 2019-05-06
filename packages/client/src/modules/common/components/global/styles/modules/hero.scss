@@ -1,0 +1,92 @@
+@import '../utils/index';
+
+.hero {
+  $pulseSpeed: 1s;
+  $pulseColorStart: rgba($white, 0.5);
+  $pulseColorEnd: rgba($white, 1.0);
+  position: relative;
+  &:before,
+  &:after {
+    position: absolute;
+    left: 50%;
+  }
+  &:before {
+    animation-direction: alternate;
+    animation-duration: $pulseSpeed;
+    animation-iteration-count: infinite;
+    animation-name: pulseColor;
+    content: "Scroll down to see more!";
+    height: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    width: auto;
+    color: $pulseColorStart;
+    top: calc(90vh - #{$headerHeight});
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  &:after {
+    animation-direction: alternate;
+    animation-duration: $pulseSpeed;
+    animation-iteration-count: infinite;
+    animation-name: pulseBorder;
+    border-color: rgba($white, 0.5);
+    border-style: solid;
+    border-top: none;
+    border-left: none;
+    border-bottom-width: 3px;
+    border-right-width: 3px;
+    content: "";
+    height: 3em;
+    top: calc(90vh - #{$headerHeight});
+    transform: translateX(-50%) rotate(45deg);
+    width: 3em;
+  }
+  &--overlayed {
+    @media (min-width: 901px) {
+      margin-top: calc(-1 * #{$headerHeight});
+    }
+  }
+  &__image {
+    position: relative;
+    left: 50%;
+    object-fit: cover;
+    // max-height: calc(100vh - #{$headerHeight} - 100px);
+    transform: translateX(-50%);
+    max-width: 100vw;
+    // width: auto;
+  }
+  &__content {
+    position: absolute;
+    font-size: 10px;
+    left: 50%;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    @media (min-width: $screenXSmall) {
+      font-size: 12px;
+    }
+    @media (min-width: $screenMedium) {
+      font-size: 16px;
+    }
+  }
+  &__header {
+    @extend %h1;
+    line-height: normal;
+    text-shadow: 1px 0px 2px rgba(255, 255, 255, 1);
+  }
+  @keyframes pulseColor {
+    from {
+      color: $pulseColorStart;
+  	} to {
+      color: $pulseColorEnd;
+  	}
+  }
+  @keyframes pulseBorder {
+    from {
+      border-color: $pulseColorStart;
+  	} to {
+      border-color: $pulseColorEnd;
+  	}
+  }
+}

@@ -1,0 +1,10 @@
+@import '../utils/index';
+
+.video-carousel {
+  @include flex(row, nowrap);
+  justify-content: flex-start;
+  overflow-x: scroll;
+  &:hover {
+    // overflow-x: auto;
+  }
+}

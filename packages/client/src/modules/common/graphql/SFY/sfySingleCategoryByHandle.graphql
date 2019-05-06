@@ -1,0 +1,24 @@
+#import "./sfyCategory.graphql"
+#import "./sfyProductFull.graphql"
+
+query categoryByHandle($handle: String!, $first: Int = 12, $after: String) {
+  sfy_shop {
+    collectionByHandle(handle: $handle) {
+      ...CategoryFull
+      ... on sfy_Collection {
+        products(first: $first, after: $after) {
+          edges {
+            cursor
+            node {
+              ...ProductFull
+            }
+          }
+          pageInfo {
+            hasNextPage
+            hasPreviousPage
+          }
+        }
+      }
+    }
+  }
+}

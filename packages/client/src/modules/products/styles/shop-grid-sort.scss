@@ -1,0 +1,25 @@
+@import '../../common/components/global/styles/utils/index';
+
+.shop-grid-sort {
+  @include flex(row, nowrap);
+  padding: 1em 0em;
+  border-top: 1px solid $grayDarker;
+  justify-content: flex-end;
+  &__num {
+    &--shown {
+      color: $brandSecondary;
+    }
+    &--total {
+      color: $grayDarker;
+    }
+  }
+  &__filters {
+    @include flex(row, nowrap);
+  }
+  &__filter {
+    margin-right: 1em;
+    &:last-of-type {
+      margin-right: 0em;
+    }
+  }
+}

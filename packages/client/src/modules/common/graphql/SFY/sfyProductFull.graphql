@@ -1,0 +1,15 @@
+#import "./sfyProductRoot.graphql"
+#import "./sfyPriceRange.graphql"
+#import "./sfyProductOptions.graphql"
+#import "./sfyProductVariants.graphql"
+#import "./sfyProductCollections.graphql"
+#import "./sfyProductImages.graphql"
+
+fragment ProductFull on sfy_Product {
+  ...RootInfo
+  ...PriceRange
+  ...Options
+  ...ProductVariants
+  ...ProductCollections
+  ...ProductImages
+}

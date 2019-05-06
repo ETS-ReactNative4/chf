@@ -1,0 +1,350 @@
+extend type Query {
+  # Products pagination query, with limit and after
+  products(limit: Int, after: Int): Products
+  # Product individual query by id
+  product(id: Int): Product
+  # Products that do not have an associated category
+  productsNoCategory: [Product]
+  # Manufacturers query
+  manufacturers: [Manufacturer]
+  # All comparison information across all products
+  productComparisons: [ProductComparisons]
+  # Ancillary data related to a particular product
+  productData(handle: String!): ProductData
+  # Products related to another product
+  relatedProducts(product_handle: String!): [RelatedProduct]
+}
+
+# Products relay-style pagination
+type Products {
+  total_count: Int
+  edges: [ProductEdges]
+  product_info: ProductPageInfo
+}
+
+# Product Info for Products
+type ProductPageInfo {
+  end_cursor: Int
+  has_next_page: Boolean
+}
+
+# ProductInfo for Products
+type ProductEdges {
+  node: Product
+  cursor: Int
+}
+
+# Core Product Type
+type Product {
+  id: Int!
+  name: String
+  short_description: String
+  sub_categories: [Int]
+  category: String
+  category_id: Int
+  location_id: Int
+  sub_category: [Int]
+  price: Float
+  images: String
+  image: String
+  quantity: Int
+  weight: Float
+  width: Float
+  height: Float
+  length: Float
+  tax_class: String
+  location: String
+  manufacturer: String
+  manufacturer_id: Int
+  sku: String
+  upc: String
+  seo: Seo
+  layout: [LayoutData]
+  attributes: [AttributeInfo]
+  related_products: [RelatedProduct]
+  # options: [Option]
+}
+#Product Seo
+type ProductSeo {
+  handle: String
+  title: String
+  description: String
+  keywords: String
+}
+# Ancillary Product Data (i.e., Features and Specs)
+type ProductData {
+  id: Int
+  product_name: String
+  sku: String
+  handle: String
+  shock_absorption: String
+  console: String
+  user_ids: String
+  workouts: String
+  hrt_monitoring: String
+  stride_technology: String
+  power: String
+  design: String
+  drive_system: String
+  handlebars: String
+  seat: String
+  pedals: String
+  frame: String
+  finish: String
+  motion: String
+  exercises: String
+  weight_stack: String
+  included_accessories: String
+  optional_weight_stack: String
+  running_area: String
+  motor: String
+  speed: String
+  incline: String
+  resistance_levels: String
+  resistance_system: String
+  stride: String
+  max_user_weight: String
+  ramp: String
+  stored_vertical_height: String
+  seat_floor_distance: String
+  warranty: String
+  seo: ProductSeo
+}
+
+# Description of a Product's page layout
+type LayoutData {
+  section_name: String
+  fields: [FieldData]
+}
+
+# Description of the individual fields from a Product's Page fields
+type FieldData {
+  name: String
+  label: String
+  value: String
+  type: String
+}
+
+# Description of Seo Information for an individual Product
+type Seo {
+  description: String
+  meta_keywords: String
+  title_tag: String
+}
+
+# Relations of a Product's individual attributes
+type AttributeInfo {
+  name: String
+  info: String
+}
+
+# Description of a Product to Product relation
+type RelatedProduct {
+  id: Int
+  product_name: String
+  product_handle: String
+  related_name: String!
+  related_handle: String!
+}
+
+# Description of all Product comparisons for a single Product
+type ProductComparisons {
+  id: Int!
+  values: [Comparison]
+}
+
+# Description of an individual comparison per Product
+type Comparison {
+  name: String!
+  value: String!
+}
+
+# Description of an individual Manufacturer
+type Manufacturer {
+  id: Int!
+  name: String
+}
+
+# Description of a page based on selected fields
+type DesignMeta {
+  hero: String
+  promo: String
+  product_info: String
+  influencer: String
+  review: String
+}
+
+# Returned Payload for ProductData mutations
+type ProductDataPayload {
+  productData: ProductData
+  errors: [FieldError]
+}
+
+# Returned Payload for RelatedProduct mutations
+type RelatedProductPayload {
+  related_products: [RelatedProduct]
+  errors: [FieldError]
+}
+
+extend type Mutation {
+  # Add a new Product
+  addProduct(input: ProductInput!): Product
+  # Add ancillary product data
+  addProductData(input: ProductDataInput!): ProductDataPayload
+  # Add RelatedProducts to an existing Product
+  addRelatedProducts(input: [RelatedProductInput!]): RelatedProductPayload
+
+  # Update an existing Product
+  updateProduct(input: ProductInput!): Product
+  # Update existing ProductData
+  updateProductData(input: ProductDataInput!): ProductDataPayload
+  # Update RelatedProducts
+  updateRelatedProducts(input: RelatedProductsInput!): RelatedProductPayload
+  # Update the Category of an existing Product
+  updateProductCategory(input: ProductCategoryInput!): Product
+  # Update existing Product Design Meta
+  updateProductDesignMeta(input: DesignMetaInput!): DesignMeta
+  # Update existing Product Page Layout
+  updateProductLayout(input: TemplateInput!): [LayoutData]
+  updateProductSeo(seo: SeoInput!): ProductSeo
+  # Delete a Product
+  deleteProduct(id: Int!): Int
+}
+
+input SeoInput {
+    handle: String
+    title: String
+    description: String
+    keywords: String
+}
+# Input Product for Product related Mutations
+input ProductInput {
+  id: Int
+  name: String
+  short_description: String
+  sub_categories: [Int]
+  category: String
+  category_id: Int
+  location_id: Int
+  sub_category: [Int]
+  price: Float
+  images: String
+  image: String
+  quantity: Int
+  weight: Float
+  width: Float
+  height: Float
+  length: Float
+  tax_class: String
+  location: String
+  manufacturer: String
+  manufacturer_id: Int
+  sku: String
+  upc: String
+  seo: SeoInput
+  attributes: [AttributeInfoInput]
+  related_products: [RelatedProductInput]
+  # options: [Option]
+}
+
+# Input for ProductData mutations
+input ProductDataInput {
+  id: Int
+  product_name: String
+  sku: String
+  handle: String!
+  shock_absorption: String
+  console: String
+  user_ids: String
+  workouts: String
+  hrt_monitoring: String
+  stride_technology: String
+  power: String
+  design: String
+  drive_system: String
+  handlebars: String
+  seat: String
+  pedals: String
+  frame: String
+  finish: String
+  motion: String
+  exercises: String
+  weight_stack: String
+  included_accessories: String
+  optional_weight_stack: String
+  running_area: String
+  motor: String
+  speed: String
+  incline: String
+  resistance_levels: String
+  resistance_system: String
+  stride: String
+  max_user_weight: String
+  ramp: String
+  stored_vertical_height: String
+  seat_floor_distance: String
+  warranty: String
+}
+
+# Required input to add a Product to a Category
+input ProductCategoryInput {
+  category_id: Int!
+  product_id: Int!
+}
+
+# Core input type for RelatedProducts mutations
+input RelatedProductInput {
+  id: Int
+  product_name: String
+  product_handle: String
+  related_name: String
+  related_handle: String
+}
+
+# Input type for RelatedProducts mutations
+input RelatedProductsInput {
+  product_handle: String!
+  related_products: [RelatedProductInput!]
+}
+
+# Input DesignMeta for Product Meta Mutations
+input DesignMetaInput {
+  product_id: String
+  selected_hero: String
+  selected_promo: String
+}
+
+# Input Template for Product Layout Mutations
+input TemplateInput {
+  product_id: Int!
+  template: [TemplateData]
+}
+
+# Input description of a layout template
+input TemplateData {
+  section_name: String
+  fields: [TemplateFieldsInput]
+}
+
+# Input description of fields for a layout template on a Product
+input TemplateFieldsInput {
+  name: String
+  label: String
+  type: String
+  value: String
+}
+
+# # Input description of Seo related to a Product
+# input SeoInput {
+#   description: String
+#   meta_keywords: String
+#   title_tag: String
+# }
+
+# Input description of Attributes related to a Product Page
+input AttributeInfoInput {
+  name: String
+  info: String
+}
+
+# extend type Subscription {}

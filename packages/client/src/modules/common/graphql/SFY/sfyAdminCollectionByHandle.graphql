@@ -1,0 +1,5 @@
+query collectionByHandle($handle: String!){
+  admin_collectionByHandle(handle: $handle){
+    productsCount
+  }
+}

@@ -1,0 +1,30 @@
+.app-store-links {
+  &--features {
+    text-align: center;
+    @media (min-width: 576px) {
+      margin-left: 55px;
+      text-align: left;
+    }
+    @media (min-width: 768px) {
+      margin-left: 65px;
+    }
+    @media (min-width: 992px) {
+      margin-left: 78px;
+    }
+  }
+  &--subscriptions {
+    font-size: .6em;
+    margin-bottom: 2.63em;
+    @media (min-width: 576px) {
+      font-size: 1em;
+    }
+  }
+  &__link {
+    display: inline-block;
+    height: 3.85em;
+    width: 12.64em;
+    &:first-child {
+      margin-right: 3em;
+    }
+  }
+}

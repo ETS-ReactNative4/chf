@@ -1,0 +1,7 @@
+#import "./Frags/DealerFrag.graphql"
+
+query dealerByHandle($handle: String) {
+  dealerByHandle(handle: $handle) {
+    ...DealerDataFrag
+  }
+}

@@ -1,0 +1,18 @@
+#import "./sfyAdminProductInfo.graphql"
+
+query adminProducts($query: String, $first: Int, $after: String) {
+  sfy_shop {
+    products(query: $query, first: $first, after: $after) {
+      edges {
+        cursor
+        node {
+          ...AdminProductInfo
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+    }
+  }
+}

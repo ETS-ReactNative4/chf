@@ -1,0 +1,50 @@
+// TODO: Implement typography defs
+body {
+  @include lineHeight(1em);
+  background-color: transparent;
+  font-family: $fontPrimary;
+  font-size: 16px;
+}
+h1 {
+  @extend %h1;
+}
+h2 {
+  @extend %h2;
+}
+h3 {
+  @extend %h3;
+}
+h4 {
+  @extend %h4;
+}
+h5 {
+  @extend %h5;
+}
+h6 {
+  @extend %h6;
+}
+p, code {
+  @include lineHeight(1em);
+  font-size: 1em;
+}
+sub, sup {
+  @include lineHeight(0.875em);
+  font-size: 0.875em;
+}
+.header {
+  &--centered {
+    text-align: center;
+  }
+  &--upper {
+    text-transform: uppercase;
+  }
+  &--lower {
+    text-transform: lowercase;
+  }
+  &--primary {
+    color: $brandPrimary;
+  }
+  &--secondary {
+    color: $brandSecondary;
+  }
+}

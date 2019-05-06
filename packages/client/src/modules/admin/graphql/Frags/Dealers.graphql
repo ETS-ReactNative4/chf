@@ -1,0 +1,8 @@
+# fragment DealersFrag on Dealers{
+#   edges {
+#     node {
+#       id
+#       handle
+#     }
+#   }
+# }

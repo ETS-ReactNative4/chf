@@ -1,0 +1,21 @@
+@import '../../common/components/global/styles/utils/index';
+
+.checkout-view {
+  @include shadow(bottom, center, 10px);
+  @include sm {
+    margin: 2em auto 0em;
+    width: 90vw;
+  }
+  @include md {
+    margin: 5em auto 0em;
+    width: 80vw;
+  }
+  margin: 0em auto;
+  padding: 1em 2em;
+  background-color: $white;
+  width: 95vw;
+  &__checkout-form-title {
+    @extend %h2;
+  }
+  &__checkout-form {}
+}

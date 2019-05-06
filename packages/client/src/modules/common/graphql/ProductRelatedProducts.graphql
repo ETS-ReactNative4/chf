@@ -1,0 +1,8 @@
+fragment ProductRelatedProductsFull on Product {
+  related_products {
+    id
+    name
+    image
+    rating
+  }
+}

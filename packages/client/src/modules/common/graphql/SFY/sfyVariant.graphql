@@ -1,0 +1,23 @@
+fragment ProductVariant on sfy_ProductVariant {
+  availableForSale
+  compareAtPrice
+  id
+  image {
+    altText
+    id
+    originalSrc
+    transformedSrc
+  }
+  price
+  product {
+    id
+  }
+  selectedOptions {
+    name
+    value
+  }
+  title
+  weight
+  weightUnit
+  sku
+}

@@ -1,0 +1,7 @@
+#import "./Checkout.graphql"
+
+query currentCheckout($id: ID!) {
+  sfy_node(id: $id) {
+    ...CheckoutInfo
+  }
+}

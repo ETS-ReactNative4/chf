@@ -1,0 +1,14 @@
+extend type Query {
+  # Query all Categories
+  categories: [Category]
+  # Query an individual Category by id or name
+  category(handle: String!): Category
+}
+
+# Definition of an individual category
+type Category {
+  id: Int!
+  name: String
+  handle: String
+  vendors: [Vendor]
+}

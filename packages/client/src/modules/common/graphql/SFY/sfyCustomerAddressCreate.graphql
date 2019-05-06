@@ -1,0 +1,17 @@
+mutation customerAddressCreate(
+  $customerAccessToken: String!
+  $address: sfy_MailingAddressInput!
+) {
+  sfy_customerAddressCreate(
+    customerAccessToken: $customerAccessToken
+    address: $address
+  ) {
+    userErrors {
+      field
+      message
+    }
+    customerAddress {
+      id
+    }
+  }
+}

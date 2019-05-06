@@ -1,0 +1,81 @@
+label {
+  padding: 0em 1em;
+  color: $brandSecondary;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+form,
+.form {
+  @include flex(row, wrap);
+  &__select-group {
+    display: block;
+    margin-bottom: 1em;
+  }
+  &__item {
+    position: relative;
+    margin-bottom: 1em;
+    flex-basis: 100%;
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0em;
+      left: 0em;
+      height: 1px;
+    }
+    &:before {
+      background-color: $brandSecondary;
+      width: 100%;
+      z-index: 100;
+    }
+    &:after {
+      background-color: $brandPrimary;
+      width: 0%;
+      z-index: 150;
+    }
+    &:focus-within {
+      &:after {
+        transition: width $animationSpeed ease-in-out;
+        width: 100%;
+      }
+    }
+  }
+  &__input,
+  &__select-group {
+    &--half {
+      @include md {
+        flex-basis: 50%;
+      }
+    }
+    &--two-thirds {
+      @include md {
+        flex-basis: 66.66%;
+      }
+    }
+    &--third {
+      @include md {
+        flex-basis: 33.33%;
+      }
+    }
+    &--split-right {
+      @include md {
+        border-right: 1px solid $brandSecondary;
+      }
+      border-right: 1px solid transparent;
+    }
+  }
+  button,
+  .button {
+    padding: 0.5em 1em;
+    &[type="submit"] {
+      margin-right: 1em;
+    }
+    &:hover {
+      background-color: $brandSecondary;
+      color: $white;
+      transition: background-color $animationSpeed ease-in-out;
+    }
+  }
+}

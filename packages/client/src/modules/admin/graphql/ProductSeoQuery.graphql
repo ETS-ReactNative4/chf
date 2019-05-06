@@ -1,0 +1,9 @@
+query productData($handle: String!) {
+  productData(handle: $handle) {
+    seo {
+      title
+      description
+      keywords
+    }
+  }
+}

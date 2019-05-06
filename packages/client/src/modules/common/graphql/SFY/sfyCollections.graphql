@@ -1,0 +1,17 @@
+fragment CollectionInfo on sfy_CollectionConnection {
+  edges {
+    node {
+      id
+      title
+      handle
+      description
+      descriptionHtml
+      image {
+        altText
+        id
+        originalSrc
+        transformedSrc
+      }
+    }
+  }
+}

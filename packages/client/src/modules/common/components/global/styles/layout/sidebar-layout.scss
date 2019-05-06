@@ -1,0 +1,43 @@
+@import '../utils/index';
+
+.sidebar-layout {
+  @include xs {
+    @include flex(column, nowrap);
+  }
+  @include md {
+    @include flex(row, nowrap);
+  }
+  position: relative;
+  background-color: $white;
+  @media (min-width: $screenMedium) {
+    min-height: calc(100vh - #{$headerHeight});
+  }
+  &__sidebar {
+    @include md {
+      margin: 2em 0em;
+      padding: 0em 2em;
+      border-right: 1px solid $brandSecondary;
+      flex-basis: 33.33%;
+    }
+    margin: 1em 0em;
+    padding: 0em 1em;
+    flex-basis: 100%;
+  }
+  &__content {
+    @include md {
+      margin: 2em 0em;
+      padding: 0em 2em;
+      flex-basis: 66.66%;
+    }
+    padding: 0em 1em;
+    margin-bottom: 1em;
+    flex-basis: 100%;
+  }
+  &__header{
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  &__text{
+    max-width: 700px;
+  }
+}

@@ -1,0 +1,19 @@
+fragment DealerDataFrag on Dealer {
+  id
+  handle
+  name
+  street
+  suite
+  city
+  zip
+  state
+  country
+  email
+  phone
+  website
+  lat
+  lng
+  image_url
+  description
+  hours
+}

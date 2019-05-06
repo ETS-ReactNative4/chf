@@ -1,0 +1,34 @@
+@import '../utils/index';
+
+html {
+  overflow-x: hidden;
+}
+
+// sass-lint:disable-block no-ids
+#root {
+  display: flex;
+  position: relative;
+  // max-width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+  // overflow-x: hidden;
+}
+
+.main-layout {
+  background-color: $siteBackgroundColor;
+
+  &__navbar {
+    background-color: $contentBackgroundColor;
+    @media (min-width: 1109px) {
+      background-color: $headerBackgroundColor;
+      height: $headerHeight;
+    }
+  }
+  &__content {
+    background-color: $contentBackgroundColor;
+    min-height: calc(100vh - #{$headerHeight});
+  }
+  &__footer {
+    background-color: $footerBackgroundColor;
+  }
+}

@@ -1,0 +1,12 @@
+mutation updateBrand($input: UpdateVendorInput) {
+  updateBrand(input: $input) {
+    id
+    name
+    handle
+    logo_url
+    is_featured
+    is_top_six
+    top_six_position
+    description
+  }
+}

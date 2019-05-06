@@ -1,0 +1,9 @@
+query relatedProducts($product_handle: String!) {
+  relatedProducts(product_handle: $product_handle) {
+    id
+    product_name
+    product_handle
+    related_name
+    related_handle
+  }
+}

@@ -1,0 +1,8 @@
+fragment ProductFieldsFull on LayoutData {
+  fields {
+    name
+    label
+    value
+    type
+  }
+}

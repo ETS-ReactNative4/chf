@@ -1,0 +1,64 @@
+@import '../utils/index';
+
+.video-card {
+  margin: 0em 0.5em;
+  cursor: pointer;
+  color: $brandSecondary;
+  flex-basis: calc(25% - 1em);
+  min-width: 300px;
+  &:hover {
+    .video-card {
+      &__content {
+        border: 2px solid $brandPrimary;
+        border-top: none;
+      }
+    }
+  }
+  &__content {
+    padding: 0em 1em;
+    border: 2px solid $grayDark;
+    border-radius: 3px;
+    border-top: none;
+    transition: border $animationSpeed ease-in-out;
+  }
+  &__image {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  &__text {
+    overflow-y: scroll;
+    height: 11.63em;
+  }
+  &__title {
+    @extend %h1;
+    margin: 0.5em 0em;
+    line-height: normal;
+  }
+  &__date {
+    color: $grayDark;
+  }
+  &__info {
+    @include flex(row, nowrap);
+    position: relative;
+    padding: 1em 0em;
+    border-top: 1px solid $grayDark;
+    justify-content: flex-start;
+  }
+  &__info-item {
+    margin-right: 0.5em;
+    & > span {
+      margin: 0em 0.5em;
+    }
+    &:last-of-type {
+      position: absolute;
+      margin-right: 0em;
+      right: 0em;
+    }
+  }
+  &__info-icon {
+    vertical-align: middle;
+    path {
+      color: $brandPrimary;
+    }
+  }
+}

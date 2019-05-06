@@ -1,0 +1,14 @@
+#import "./sfyProductImages.graphql"
+
+query relatedProductByHandle($handle: String!) {
+  sfy_shop {
+    productByHandle(handle: $handle) {
+      title
+      handle
+      vendor
+      id
+      productType
+      ...ProductImages
+    }
+  }
+}

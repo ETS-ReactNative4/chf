@@ -1,0 +1,29 @@
+#import "./Checkout.graphql"
+
+mutation checkoutShippingAddressUpdate(
+  $shippingAddress: sfy_MailingAddressInput!
+  $checkoutId: ID!
+) {
+  sfy_checkoutShippingAddressUpdate(
+    shippingAddress: $shippingAddress
+    checkoutId: $checkoutId
+  ) {
+    userErrors {
+      field
+      message
+    }
+    checkout {
+      ...CheckoutInfo
+      shippingAddress {
+        firstName
+        lastName
+        address1
+        province
+        country
+        zip
+        latitude
+        longitude
+      }
+    }
+  }
+}

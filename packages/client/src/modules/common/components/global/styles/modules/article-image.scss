@@ -1,0 +1,44 @@
+@import '../utils/index';
+
+.article-image {
+  margin: 0em 1em 2em;
+  background-color: rgba(0,0,0,.2);
+  border: 2px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform $animationSpeed ease-in-out;
+  &[data-grid-w='1'] {
+    flex-basis: calc(100% - 2em);
+    @media (min-width: $screenSmall) {
+      flex-basis: calc(50% - 2em);
+    }
+    @media (min-width: $screenMedium) {
+      flex-basis: calc(33.33% - 2em);
+    }
+  }
+  &[data-grid-w='2'] {
+    flex-basis: calc(100% - 2em);
+    @media (min-width: $screenMedium) {
+      flex-basis: calc(66.66% - 2em);
+    }
+  }
+  &[data-grid-w='3'] {
+    flex-basis: calc(100% - 2em);
+  }
+  &:hover {
+    transform: scale(1.02);
+  }
+  &--shadowed {
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+    transition: transform $animationSpeed ease-in-out, box-shadow $animationSpeed ease-in-out;
+    &:hover {
+      box-shadow: 0px 7.5px 15px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &__link {
+    height: 100%;
+  }
+  &__image {
+    height: inherit;
+  }
+}

@@ -1,0 +1,13 @@
+fragment CategoryFull on sfy_Collection {
+  id
+  title
+  handle
+  description
+  descriptionHtml
+  image {
+    altText
+    id
+    originalSrc
+    transformedSrc
+  }
+}

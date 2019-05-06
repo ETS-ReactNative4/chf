@@ -1,0 +1,16 @@
+#import "./Checkout.graphql"
+
+mutation checkoutLineItemsRemove($checkoutId: ID!, $lineItemIds: [ID!]!) {
+  sfy_checkoutLineItemsRemove(
+    checkoutId: $checkoutId
+    lineItemIds: $lineItemIds
+  ) {
+    userErrors {
+      field
+      message
+    }
+    checkout {
+      ...CheckoutInfo
+    }
+  }
+}

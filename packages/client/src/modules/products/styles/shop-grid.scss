@@ -1,0 +1,48 @@
+@import '../../common/components/global/styles/utils/index';
+
+.shop-grid {
+  @include flex(row, wrap);
+  justify-content: space-between;
+  &__item {
+    @include flex(column, nowrap);
+    margin-bottom: 2em;
+    align-items: center;
+    flex-basis: 100%;
+    @media (min-width: $screenSmall) {
+      flex-basis: 49%;
+      font-size: 14px;
+    }
+    @media (min-width: $screenMedium) {
+      margin-bottom: 3em;
+      flex-basis: 32%;
+      // font-size: 16px;
+    }
+    @media (min-width: $screenLarge) {
+      flex-basis: 32%;
+      font-size: 16px;
+      .search-view & {
+        flex-basis: 25%;
+      }
+    }
+  }
+  &__item-image {
+    position: relative;
+    margin-bottom: 0.5em;
+  }
+  &__item-name,
+  &__item-category {
+    line-height: normal;
+    text-align: center;
+  }
+  &__item-name {}
+  &__item-category {}
+  &__item-price-group {}
+  &__item-price {
+    &--sale {
+      margin-right: 0.5em;
+    }
+    &--original {
+      text-decoration: line-through;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+#import "./sfyProductFull.graphql"
+
+query singleProductByHandle($handle: String!) {
+  sfy_shop {
+    productByHandle(handle: $handle) {
+      ...ProductFull
+    }
+  }
+}

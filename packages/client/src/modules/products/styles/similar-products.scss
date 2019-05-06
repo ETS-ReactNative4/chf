@@ -1,0 +1,39 @@
+@import '../../common/components/global/styles/utils/index';
+
+.similar-products {
+  position: relative;
+  padding: 5em 2.5em;
+  background-color: $gray;
+  color: $brandSecondary;
+  @media (min-width: $screenMedium) {
+    padding: 5em;
+  }
+  @media (min-width: $screenLarge) {
+    padding: 5em 8em;
+  }
+  &__header {
+    line-height: normal;
+  }
+  &__description {
+    margin-bottom: 2em;
+  }
+  &__item-container {
+    @include flex(row, nowrap);
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  &__item {
+    margin: 0em 1em;
+    flex-basis: calc(25% - 2em);
+    min-width: 250px;
+    &:first-of-type {
+      margin-left: 0em;
+    }
+    &:last-of-type {
+      margin-right: 0em;
+    }
+  }
+  &__item-name {
+    text-align: center;
+  }
+}

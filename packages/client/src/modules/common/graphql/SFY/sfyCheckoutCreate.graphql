@@ -1,0 +1,13 @@
+#import "./Checkout.graphql"
+
+mutation createCart($input: sfy_CheckoutCreateInput!) {
+  sfy_checkoutCreate(input: $input) {
+    checkoutUserErrors {
+      field
+      message
+    }
+    checkout {
+      ...CheckoutInfo
+    }
+  }
+}

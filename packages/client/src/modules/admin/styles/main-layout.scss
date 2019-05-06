@@ -1,0 +1,80 @@
+@import './utils/index';
+
+html {
+  overflow-x: hidden;
+}
+
+// sass-lint:disable-block no-ids
+#root {
+  display: flex;
+  position: relative;
+  // max-width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+  // overflow-x: hidden;
+}
+
+.admin-layout {
+  background-color: $siteBackgroundColor;
+  height: 100vh;
+  display: flex;
+  // &__navbar {
+  //   background-color: $contentBackgroundColor;
+  //   @media (min-width: 1109px) {
+  //     background-color: $headerBackgroundColor;
+  //     height: $headerHeight;
+  //   }
+  // }
+  &__content {
+    flex-direction: column;
+    background-color: #f1f1f1;
+    width: 100vw;
+    // width: calc(100% - 15%);
+  }
+  // &__footer {
+  //   background-color: $footerBackgroundColor;
+  // }
+  .admin__dashboard {
+    display: flex;
+    flex-direction: column;
+  }
+  .admin {
+    &__modal {
+    position: absolute;
+    top: calc(100vh - 70%);
+    right: 40%;
+    height: 200px;
+    width: 400px;
+    p {
+      position: relative;
+      top: 50%;
+      left: 33%;
+    }
+    // div {
+    //   position: absolute;
+    //   svg {
+    //     position: relative;
+    //     left: 96%;
+    //     bottom: 50px;
+    //   }
+    // }
+      &--success {
+        background-color: #fff;
+        border: 1px solid green;
+        width: inherit;
+        height: inherit;
+        border-radius: 5px;
+      }
+    }
+    .modal {
+      &__btn {
+        &--close {
+          position: relative;
+          bottom: 24%;
+          left: 96%;
+          width: 17px;
+        }
+      }
+    }
+  }
+}

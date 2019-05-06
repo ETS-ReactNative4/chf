@@ -1,0 +1,10 @@
+#import './sfyVariant.graphql'
+
+fragment VariantInfo on sfy_ProductVariantConnection {
+  edges {
+    cursor
+    node {
+      ...ProductVariant
+    }
+  }
+}

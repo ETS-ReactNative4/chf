@@ -1,0 +1,44 @@
+%clearfix {
+  &:after {
+    display: block;
+    content: " ";
+    clear: both;
+  }
+}
+
+%absoluteCenter {
+  @include absoluteCenter;
+}
+
+%animateSize {
+  @include animateSize;
+}
+
+%animateUnderline {
+  @include animateUnderline;
+}
+
+%h1 {
+  @include lineHeight(1.75em);
+  font-size: 1.75em;
+}
+%h2 {
+  @include lineHeight(1.675em);
+  font-size: 1.675em;
+}
+%h3 {
+  @include lineHeight(1.5em);
+  font-size: 1.5em;
+}
+%h4 {
+  @include lineHeight(1.375em);
+  font-size: 1.375em;
+}
+%h5 {
+  @include lineHeight(1.25em);
+  font-size: 1.25em;
+}
+%h6 {
+  @include lineHeight(1.125em);
+  font-size: 1.125em;
+}

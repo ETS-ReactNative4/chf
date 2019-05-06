@@ -1,0 +1,7 @@
+#import "./Frags/DealerFrag.graphql"
+
+mutation updateDealer($dealer: DealerInput) {
+  updateDealer(dealer: $dealer){
+    ...DealerDataFrag
+  }
+}

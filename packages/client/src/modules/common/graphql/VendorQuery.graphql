@@ -1,0 +1,22 @@
+query vendor($input: VendorQueryInput!) {
+  vendor(input: $input) {
+    id
+    name
+    handle
+    logo_url
+    is_featured
+    categories {
+      id
+      name
+      handle
+    }
+     vendorData(input: $input) {
+      id
+      seo {
+        title
+        description
+        keywords
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+query vendorSeo($handle: String) {
+  vendorData(handle: $handle) {
+    id
+    seo {
+      handle
+      title
+      description
+      keywords
+    }
+  }
+}

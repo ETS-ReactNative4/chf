@@ -1,0 +1,10 @@
+@import '../utils/index';
+
+.article {
+  background-color: transparent;
+  &__title {
+    &--centered {
+      text-align: center;
+    }
+  }
+}

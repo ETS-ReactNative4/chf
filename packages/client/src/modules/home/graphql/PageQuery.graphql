@@ -1,0 +1,11 @@
+query page($id: ID, $pageTitle: String, $fieldNames: [[String]]) {
+  page(id: $id, pageTitle: $pageTitle) {
+    id
+    fields(field_names: $fieldNames) {
+      field_name
+      field_label
+      field_type
+      field_value
+    }
+  }
+}

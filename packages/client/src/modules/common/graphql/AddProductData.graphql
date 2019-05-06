@@ -1,0 +1,13 @@
+#import "./ProductDataFull.graphql"
+
+mutation addProductData($input: ProductDataInput!) {
+  addProductData(input: $input) {
+    productData {
+      ...ProductDataFull
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

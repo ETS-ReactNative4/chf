@@ -1,0 +1,17 @@
+@import '../utils/index';
+
+.submission-error {
+  width: 100%;
+  font-size: 1.1em;
+  color: #fc7b18;
+  margin-top: 1em;
+  &__header {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+  &__text {
+    &--bold {
+      font-weight: 600;
+    }
+  }
+}

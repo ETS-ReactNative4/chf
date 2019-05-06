@@ -1,0 +1,22 @@
+@import '../../common/components/global/styles/utils/index';
+
+.about-view {
+  @include shadow(bottom, center, 15px);
+  margin: 3em auto;
+  padding: 1em;
+  background-color: $white;
+  width: 90vw;
+
+  @media (min-width: $screenSmall) {
+    padding: 2em 3em;
+  }
+  @media (min-width: $screenMedium) {
+    width: 85vw;
+  }
+  @media (min-width: $screenLarge) {
+    width: 80vw;
+  }
+  @media (min-width: $screenXLarge) {
+    width: 75vw;
+  }
+}

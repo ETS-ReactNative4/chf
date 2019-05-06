@@ -1,0 +1,33 @@
+@import '../../common/components/global/styles/utils/index';
+
+.shop-grid-pages {
+  @include flex(row, nowrap);
+  padding: 1em 0em;
+  border-bottom: 1px solid $grayDark;
+  border-top: 1px solid $grayDark;
+  justify-content: center;
+  &__button {
+    background-color: transparent;
+    height: 2em;
+    vertical-align: middle;
+    // width: 2em;
+    &--current {
+      background-color: $grayDark;
+    }
+    &--disabled {
+      color: $grayDark;
+    }
+    &:hover {
+      &:not(.shop-grid-pages__button--disabled) {
+        &:not(.shop-grid-pages__button--current) {
+          background-color: $brandSecondary;
+          color: $white;
+          transition: all $animationSpeed ease-in-out;
+        }
+      }
+    }
+  }
+  &__button-icon {
+    vertical-align: middle;
+  }
+}

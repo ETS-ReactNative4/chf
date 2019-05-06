@@ -1,0 +1,15 @@
+mutation deleteUser($id: Int!) {
+  deleteUser(id: $id) {
+    user {
+      id
+      role
+      email
+      first_name
+      last_name
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

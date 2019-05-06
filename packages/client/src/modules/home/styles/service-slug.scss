@@ -1,0 +1,28 @@
+@import '../../common/components/global/styles/utils/index';
+
+.service-slug {
+  @include flex(row, wrap);
+  justify-content: space-around;
+  &__item {
+    @include flex(row, nowrap);
+    @include sm {
+      flex-basis: 50%;
+      justify-content: center;
+    }
+    @include md {
+      flex-basis: 32%;
+    }
+    align-items: center;
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+  &__icon {
+    flex-basis: 15%;
+  }
+  &__text {
+    @extend %h1;
+    margin-left: 0.5em;
+    color: $brandSecondary;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,94 @@
+/* Workout Type Section Placeholders */
+%center-with-absolute {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+%baseline {
+  content: "";
+  bottom: 0;
+  height: 1px;
+  border-bottom: 1px solid #fc7b18;
+  width: 117px;
+}
+
+/* Workout Type Main Styles */
+.workout-types {
+  font-size: .65em;
+  padding-top: 2.8em;
+  padding-bottom: 2.4em;
+  display: grid;
+  grid-column-gap: 12%;
+  grid-row-gap: 30px;
+  justify-content: center;
+  color: #000000;
+  background: #F7F7F7;
+  @media (min-width: 576px) {
+    font-size: .7em;
+  }
+  @media (min-width: 768px) {
+    font-size: .9em
+  }
+  @media (min-width: 992px) {
+    grid-template-areas: 'one two'
+                         'three four';
+  }
+  @media (min-width: 1050px) {
+    font-size: 1em;
+  }
+}
+
+.workout-types-card {
+  position: relative;
+  width: 26.8em;
+  height: 23.56em;
+  &__image-container {
+    width: 100%;
+    height: 15.09em;
+  }
+  &__text-container {
+    @extend %center-with-absolute;
+    top: 12em;
+    text-align: center;
+    padding: .7em .4em 1.4em;
+    width: 19.7em;
+    height: 11.5em;
+    background: #F7F7F7;
+    z-index: 2;
+  }
+  &__text-shadow {
+    @extend %center-with-absolute;
+    width: 19.7em;
+    height: 8.56em;
+    z-index: 1;
+    left: .44em;
+    bottom: -.19em;
+    background: #C3C3C5;
+  }
+  &__image-shadow {
+    position: absolute;
+    width: 26.5em;
+    height: 15em;
+    top: .27em;
+    right: -.32em;
+    background: #C3C3C5;
+    z-index: 0;
+  }
+  &__header {
+   font-size: 2.25em;
+   padding-bottom: .2em;
+   position: relative;
+   line-height: initial;
+   font-weight: 300;
+   &:before {
+    @extend %center-with-absolute;
+    @extend %baseline;
+   }
+  }
+  &__text {
+    font-size: 1.4em;
+    font-weight: 300;
+  }
+}

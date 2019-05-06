@@ -1,0 +1,112 @@
+extend type Query {
+  # Get all users ordered by: OrderByUserInput add filtered by: FilterUserInput
+  users(orderBy: OrderByUserInput, filter: FilterUserInput): [User]
+  # Get user by id
+  user(id: Int!): UserPayload
+  # Get current user
+  currentUser: User
+}
+
+# Description of individual User
+type User {
+  id: Int!
+  role: String
+  first_name: String
+  last_name: String
+  email: String
+  username: String
+  telephone: String
+  is_active: Boolean
+  auth: UserAuth
+}
+
+# Payload returned on mutation of User type
+type UserPayload {
+  user: User
+  errors: [FieldError!]
+}
+
+### TO DELETE START
+# Additional authentication service info
+type UserAuth {
+  certificate: CertificateAuth
+  facebook: FacebookAuth
+  google: GoogleAuth
+  github: GithubAuth
+  linkedin: LinkedInAuth
+}
+
+type CertificateAuth {
+  serial: String
+}
+
+type FacebookAuth {
+  fbId: String
+  displayName: String
+}
+
+type GoogleAuth {
+  googleId: String
+  displayName: String
+}
+
+type GithubAuth {
+  ghId: String
+  displayName: String
+}
+
+type LinkedInAuth {
+  lnId: String
+  displayName: String
+}
+### TO DELETE END
+
+extend type Mutation {
+  # Create user with role of admin
+  addAdmin(input: AddUserInput!): UserPayload!
+  # Edit a user
+  #editUser(input: EditUserInput!): UserPayload!
+  # Delete a user
+  deleteUser(id: Int!): UserPayload!
+}
+
+# Input for addUser Mutation
+input AddUserInput {
+  email: String!
+  role: String
+  username: String
+  first_name: String
+  last_name: String
+  telephone: String
+  password: String
+  is_active: Boolean
+}
+
+# Input for ordering users (**MODIFY**)
+input OrderByUserInput {
+  # id | username | role | is_active | email
+  column: String
+  # asc | desc
+  order: String
+}
+
+# Input for filtering users (**MODIFY**)
+input FilterUserInput {
+  # search by username or email
+  searchText: String
+  # filter by role
+  role: String
+  # filter by is_active
+  is_active: Boolean
+}
+
+extend type Subscription {
+  # Subscription for users list
+  usersUpdated(filter: FilterUserInput): UpdateUserPayload
+}
+
+# Payload for usersUpdated Subscription
+type UpdateUserPayload {
+  mutation: String!
+  node: User!
+}

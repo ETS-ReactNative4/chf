@@ -1,0 +1,14 @@
+query category($handle: String!) {
+  category(handle: $handle) {
+    id
+    name
+    handle
+    vendors {
+      id
+      name
+      handle
+      logo_url
+      is_featured
+    }
+  }
+}

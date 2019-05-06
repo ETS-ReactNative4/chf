@@ -1,0 +1,18 @@
+#import "./Payment.graphql"
+#import "./LineItem.graphql"
+
+fragment CheckoutInfo on sfy_Checkout {
+  id
+  lineItems(first: 20) {
+    edges {
+      node {
+        ...LineItemInfo
+      }
+    }
+  }
+  ...PaymentInfo
+  webUrl
+  updatedAt
+  ready
+  orderStatusUrl
+}

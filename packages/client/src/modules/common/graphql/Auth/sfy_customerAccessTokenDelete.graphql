@@ -1,0 +1,10 @@
+mutation customerAccessTokenDelete($customerAccessToken: String!) {
+  sfy_customerAccessTokenDelete(customerAccessToken: $customerAccessToken) {
+    userErrors {
+      field
+      message
+    }
+    deletedAccessToken
+    deletedCustomerAccessTokenId
+  }
+}

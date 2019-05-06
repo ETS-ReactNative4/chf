@@ -1,0 +1,34 @@
+@import '../../common/components/global/styles/utils/index';
+
+.profile-view {
+  @include flex(row, wrap);
+  &__sidebar,
+  &__content {
+    @include md {
+      height: calc(100vh - #{$headerHeight});
+      overflow-y: scroll;
+    }
+  }
+  &__sidebar {
+    @include sm {}
+    @include md {
+      width: calc(33.33vw - 2em);
+    }
+    @include lg {
+      width: calc(20vw - 2em);
+    }
+    background-color: $brandSecondary;
+    width: 100vw;
+  }
+  &__content {
+    @include sm {}
+    @include md {
+      width: 66.66vw;
+    }
+    @include lg {
+      width: 80vw;
+    }
+    padding: 1.5em 3em;
+    width: 100vw;
+  }
+}

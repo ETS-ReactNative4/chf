@@ -1,0 +1,50 @@
+@import '../../common/components/global/styles/utils/index';
+
+.popular-items-carousel {
+  @include flex(row, wrap);
+  justify-content: space-around;
+  &__item {
+    @include flex(column, nowrap);
+    margin: 0em 1em 2em;
+    align-items: center;
+    color: $brandSecondary;
+    flex-basis: calc(100% - 2em);
+    &:hover {
+      .popular-items-carousel {
+        &__item-image {
+          box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+          transform: scale(1.02);
+        }
+      }
+    }
+    @media (min-width: $screenSmall) {
+      flex-basis: calc(50% - 2em);
+    }
+    @media (min-width: $screenMedium) {
+      flex-basis: calc(33.33% - 2em);
+    }
+  }
+  &__item-image {
+    position: relative;
+    margin-bottom: 2em;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    transition: box-shadow $animationSpeed ease-in-out,
+    transform $animationSpeed ease-in-out;
+  }
+  &__vendor-image {
+    margin-bottom: 1em;
+    max-width: 200px;
+  }
+  &__item-name,
+  &__item-price {
+    @extend %h3;
+    line-height: normal;
+    text-align: center;
+  }
+  &__item-price {
+    &--original {
+      text-decoration: line-through;
+    }
+    &--sale {}
+  }
+}

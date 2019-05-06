@@ -1,0 +1,7 @@
+#import "./sfyCollections.graphql"
+
+fragment ProductCollections on sfy_Product {
+  collections(first: 10) {
+    ...CollectionInfo
+  }
+}

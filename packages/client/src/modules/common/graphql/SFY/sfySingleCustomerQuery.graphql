@@ -1,0 +1,12 @@
+query sfySingleCustomer($query: String) {
+  admin_customers(query: $query, first: 1) {
+    edges {
+      node {
+        firstName
+        lastName
+        email
+        verifiedEmail
+      }
+    }
+  }
+}

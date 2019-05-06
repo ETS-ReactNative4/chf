@@ -1,0 +1,12 @@
+fragment PriceRange on sfy_Product {
+  priceRange {
+    maxVariantPrice {
+      amount
+      currencyCode
+    }
+    minVariantPrice {
+      amount
+      currencyCode
+    }
+  }
+}

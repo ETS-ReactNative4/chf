@@ -1,0 +1,265 @@
+@import '../utils/index';
+
+.navbar {
+  $navRoot: &;
+  $lineWidth: 75%;
+  @include flex(row, nowrap);
+  $hamburgerWidth: 40px;
+  $mobileBreakpoint: 1109px;
+  $desktopBreakpoint: 1230px;
+  position: sticky;
+  padding: 1em 0.5em;
+  align-items: center;
+  // Added Code Until ScrollMagic Implemented
+  // box-shadow: inset 0px 35px 35px -10px $white;
+  box-shadow: inset 0px #{$headerHeight} 0px 0px $white;
+  justify-content: space-between;
+  top: 0em;
+  transition: box-shadow $animationSpeed ease-in-out;
+  z-index: 100;
+
+  @media (max-width: 400px) {
+    padding: 1em 0em 1em 0.5em;
+  }
+  @media (max-width: 1030px) {
+    align-items: flex-start;
+  }
+  // Commented Out Until ScrollMagic Implemented
+  // &:hover,
+  // &--active {
+  //   box-shadow: inset 0px #{$headerHeight} 0px 0px $white;
+  // }
+  &__logo {
+    position: relative;
+    flex-basis: 10%;
+    top: 24px;
+    transform: translateY(-50%);
+    width: auto;
+    img {
+      width: auto;
+      height: calc(80px - 2em);
+    }
+    @media (min-width: 500px) {
+      padding: 0em 1em;
+    }
+    @media (min-width: $mobileBreakpoint) {
+      padding: 0em 2em;
+      flex-basis: 15%;
+      top: auto;
+      transform: none;
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+  &__logo-link {
+    display: block;
+  }
+  &__content {
+    @include flex(row, nowrap);
+    flex-basis: 90%;
+    justify-content: flex-end;
+    @media (min-width: $mobileBreakpoint) {
+      justify-content: space-between;
+    }
+  }
+  &__hamburger {
+    margin: 1em;
+    cursor: pointer;
+    transform: rotate(0deg) translateY(-40%);
+    transition: .5s ease-in-out;
+    width: $hamburgerWidth;
+
+    @media (max-width: 400px) {
+      width: 30px;
+    }
+    @media (min-width: $mobileBreakpoint) {
+      display: none;
+    }
+  }
+  &__hamburger-item {
+    display: block;
+    position: absolute;
+    background-color: $brandSecondary;
+    border-radius: 3px;
+    height: 3px;
+    left: 0px;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    width: 100%;
+
+    &:nth-child(1) {
+      top: 0px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 10px;
+    }
+
+    &:nth-child(4) {
+      top: 20px;
+    }
+
+    &:nth-child(1) {
+      .navbar {
+        &__hamburger {
+          &.open & {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+          }
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .navbar {
+        &__hamburger {
+          &.open & {
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .navbar {
+        &__hamburger {
+          &.open & {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      .navbar {
+        &__hamburger {
+          &.open & {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+          }
+        }
+      }
+    }
+  }
+  &__collapse {
+    @include flex(column, nowrap);
+    position: absolute;
+    top: 80px;
+    right: 0em;
+    align-items: flex-end;
+    flex-basis: 100%;
+    justify-content: flex-end;
+    max-height: 0px;
+    opacity: 0; // sass-lint:disable-line zero-unit
+    transition: max-height 300ms ease-in-out;
+    visibility: hidden;
+    width: 100%;
+    &.open {
+      background-color: $contentBackgroundColor;
+      max-height: 400px;
+      // margin-bottom: 0.5em;
+      opacity: 1;
+      visibility: visible;
+    }
+    @media (min-width: $mobileBreakpoint) {
+      @include flex(row, nowrap);
+      position: relative;
+      align-items: center;
+      background-color: transparent;
+      flex-basis: 65%;
+      top: unset;
+      right: unset;
+      justify-content: flex-start;
+      max-height: none;
+      opacity: 1;
+      visibility: visible;
+      width: auto;
+    }
+  }
+  &__triggers {
+    display: flex;
+    @media (min-width: $mobileBreakpoint) {
+      @include flex(row, nowrap);
+      align-items: center;
+      flex-basis: 35%;
+      justify-content: space-around;
+    }
+  }
+  &__collapse-item {
+    @include animateUnderline($linkColor);
+    @include md {
+      padding: 0.5em 0.75em;
+    }
+    @include lg {
+      padding: 0.5em 1.25em;
+    }
+    padding: 0.5em 1.25em;
+    &:before {
+      bottom: 5px;
+      left: calc((100% - #{$lineWidth}) / 2);
+      width: $lineWidth;
+    }
+  }
+  &__trigger-item {
+    @include animateUnderline($linkColor);
+    // padding: 10px;
+    &--profile,
+    &--cart {
+      position: relative;
+      background-color: transparent;
+      color: $brandSecondary;
+    }
+    &--profile {
+      padding: 0.5em 17.5px 0.5em 10px;
+      @media (max-width: 400px) {
+        padding: 0.5em 5px 0.5em 5px;
+      }
+    }
+    &--cart {
+      padding: 0.5em 40px 0.5em 10px;
+      &:after {
+        $circleSize: 20px;
+        position: absolute;
+        padding: calc(#{$circleSize} * 0.25);
+        background-color: $brandSecondary;
+        border-radius: 50%;
+        color: $white;
+        content: attr(data-cart-count);
+        font-size: calc(#{$circleSize} * 0.5);
+        height: $circleSize;
+        line-height: calc(#{$circleSize} * 0.5);
+        right: 7.5px;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        vertical-align: middle;
+        width: $circleSize;
+      }
+    }
+    &--search {
+      @include md {
+        padding: 0.5em 0.75em;
+      }
+      @include lg {
+        padding: 0.5em 1.25em;
+      }
+      padding: 0.5em 1.25em;
+    }
+  }
+  &__search-text {
+    padding-right: 0.5em;
+  }
+  &__trigger-item-icon {
+    margin-right: 0.5em;
+    vertical-align: middle;
+    path {
+      color: $brandPrimary;
+    }
+  }
+}

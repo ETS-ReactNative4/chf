@@ -1,0 +1,63 @@
+@import '../utils/index';
+
+.footer {
+  @include flex(column, nowrap);
+  padding: 2em;
+  justify-content: space-around;
+  @media (min-width: $screenMedium) {
+    @include flex(row, wrap);
+    padding: 2em 3em;
+  }
+  @media (min-width: $screenLarge) {
+    @include flex(row, wrap);
+    padding: 2em 5em;
+  }
+  &__logo {
+    @include flex(column);
+    position: relative;
+    align-items: center;
+    flex-basis: 100%;
+    @media (min-width: $screenMedium) {
+      flex-basis: 20%;
+    }
+    @media (min-width: $screenLarge) {
+      flex-basis: 25%;
+    }
+    img {
+      max-width: 150px;
+      min-width: 100px;
+      width: 50%;
+      @media (min-width: $screenMedium) {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  &__content {
+    @include flex(column, nowrap);
+    flex-basis: 100%;
+    justify-content: flex-start;
+    @media (min-width: $screenSmall) {
+      @include flex(row, wrap);
+      justify-content: space-around;
+    }
+    @media (min-width: $screenMedium) {
+      flex-basis: 80%;
+    }
+    @media (min-width: $screenLarge) {
+      flex-basis: 75%;
+    }
+  }
+  &__section {
+    padding: 0.5em;
+    &--links {}
+    &--social {}
+    &--email {}
+  }
+  &__title {
+    @extend %h6;
+    color: $brandSecondary;
+  }
+}

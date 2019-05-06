@@ -1,0 +1,14 @@
+mutation customerAccessTokenCreate(
+  $input: sfy_CustomerAccessTokenCreateInput!
+) {
+  sfy_customerAccessTokenCreate(input: $input) {
+    userErrors {
+      field
+      message
+    }
+    customerAccessToken {
+      accessToken
+      expiresAt
+    }
+  }
+}

@@ -1,0 +1,20 @@
+query admin_products($first: Int, $after: String, $query: String) {
+  admin_products(first: $first, after: $after, query: $query) {
+    edges {
+      cursor
+      node {
+        handle
+        title
+        vendor
+        featuredImage {
+          originalSrc
+          transformedSrc(maxWidth: 100, maxHeight:100)
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}

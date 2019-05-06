@@ -1,0 +1,9 @@
+mutation logoutAdmin {
+  logoutAdmin {
+    errors {
+      field
+      message
+    }
+    success
+  }
+}

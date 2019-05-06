@@ -1,0 +1,33 @@
+@import '../../common/components/global/styles/utils/index';
+
+.profile-menu {
+  &__list-item {
+    border-bottom: 1px solid black;
+    &:last-of-type {
+      // border-bottom: none;
+    }
+  }
+  &__button {
+    @include flex(row, nowrap);
+    padding: 0.5em 1em;
+    background-color: $brandSecondary;
+    color: $white;
+    text-align: left;
+    width: 100%;
+    &--active {
+      background-color: darken($brandSecondary, 10);
+      // font-weight: 600;
+    }
+    &:hover {
+      background-color: lighten($brandSecondary, 5);
+    }
+  }
+  &__text,
+  &__icon {
+    vertical-align: middle;
+  }
+  &__text {
+    margin-left: 1em;
+  }
+  &__icon {}
+}

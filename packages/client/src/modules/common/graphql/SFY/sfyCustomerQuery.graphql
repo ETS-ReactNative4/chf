@@ -1,0 +1,33 @@
+query customer($customerAccessToken: String!) {
+  sfy_customer(customerAccessToken: $customerAccessToken) {
+    acceptsMarketing
+    #addresses
+    createdAt
+    defaultAddress {
+      address1
+      address2
+      city
+      company
+      country
+      countryCodeV2
+      firstName
+      id
+      lastName
+      latitude
+      longitude
+      name
+      phone
+      province
+      provinceCode
+      zip
+    }
+    email
+    firstName
+    id
+    #lastIncompleteCheckout
+    lastName
+    #orders
+    phone
+    updatedAt
+  }
+}

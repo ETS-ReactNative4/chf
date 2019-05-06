@@ -1,0 +1,75 @@
+@import '../utils/index';
+
+.video-text {
+  @include flex(row, wrap);
+  align-items: center;
+  justify-content: center;
+  &--small {
+    .video-text {
+      &__content {
+        padding: 2em;
+        flex-basis: 50%;
+      }
+      &__video {
+        flex-basis: 50%;
+      }
+    }
+  }
+  &--medium {
+    .video-text {
+      &__content {
+        padding: 3em;
+        flex-basis: 50%;
+      }
+      &__video {
+        flex-basis: 50%;
+      }
+    }
+  }
+  &--large {
+    .video-text {
+      &__content {
+        padding: 3em;
+        flex-basis: 50%;
+      }
+      &__video {
+        flex-basis: 50%;
+      }
+    }
+  }
+  &__content {
+    padding: 1em;
+    color: $brandSecondary;
+    flex-basis: 100%;
+    &--left {
+      order: -1;
+    }
+    &--right {
+      order: 0; // sass-lint:disable-line zero-unit
+    }
+  }
+  &__video {
+    flex-basis: 100%;
+    .aspect-ratio {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 51%;
+    }
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0; top: 0;
+    }
+    &--left {
+      order: -1;
+    }
+    &--right {
+      order: 0; // sass-lint:disable-line zero-unit
+    }
+  }
+  &__header {
+    @extend %h1;
+  }
+}

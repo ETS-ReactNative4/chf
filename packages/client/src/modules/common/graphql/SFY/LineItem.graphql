@@ -1,0 +1,10 @@
+#import './sfyVariant.graphql'
+
+fragment LineItemInfo on sfy_CheckoutLineItem {
+  title
+  id
+  quantity
+  variant {
+    ...ProductVariant
+  }
+}

@@ -1,0 +1,16 @@
+#import "./Checkout.graphql"
+
+mutation checkoutLineItemsAdd(
+  $lineItems: [sfy_CheckoutLineItemInput!]!
+  $checkoutId: ID!
+) {
+  sfy_checkoutLineItemsAdd(lineItems: $lineItems, checkoutId: $checkoutId) {
+    userErrors {
+      field
+      message
+    }
+    checkout {
+      ...CheckoutInfo
+    }
+  }
+}

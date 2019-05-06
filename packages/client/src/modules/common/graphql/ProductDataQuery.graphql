@@ -1,0 +1,7 @@
+#import "./ProductDataFull.graphql"
+
+query productData($handle: String!) {
+  productData(handle: $handle) {
+    ...ProductDataFull
+  }
+}

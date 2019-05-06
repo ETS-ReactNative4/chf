@@ -1,0 +1,142 @@
+@import '../utils/index';
+
+.cart-container {
+  position: fixed;
+  right: 0em;
+  bottom: 0em;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: auto;
+  opacity: 0; // sass-lint:disable-line zero-unit
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+  visibility: hidden;
+  @media (min-width: $screenMedium) {
+    height: calc(100vh - #{$headerHeight});
+  }
+  &--open {
+    opacity: 1;
+    transition: opacity $animationSpeed ease-in-out;
+    visibility: visible;
+    z-index: 10000;
+    top: 77px;
+    left: 0px;
+    .cart {
+      right: 0px;
+      transition: right $animationSpeed ease-in-out;
+    }
+    @media (min-width: 901px) {
+      top: unset;
+      left: unset;
+    }
+  }
+}
+
+.cart {
+  position: absolute;
+  background-color: $contentBackgroundColor;
+  height: 100%;
+  max-width: 100vw;
+  right: -300px;
+  top: 0em;
+  width: 320px;
+  max-height: 640px;
+  overflow-y: scroll;
+  @media (min-width: $screenSmall) {
+    max-height: unset;
+  }
+  &__dismiss {
+    display: flex;
+    width: 100%;
+    background-color: $brandSecondary;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    color: white;
+    box-shadow: 0px 6px 14px 0px rgba(0,0,0,.3);
+    svg {
+      margin-left: .5em;
+    }
+  }
+  &__item-list {
+    padding: 0em 1em 3em 1em;
+    max-height: 80%;
+    overflow-y: auto;
+  }
+  &__item {
+    @include flex(row, nowrap);
+    padding: 1em 0em 1em 1em;
+    // padding-left: 2em;
+    align-items: center;
+    border-bottom: 1px solid $brandSecondary;
+    justify-content: space-between;
+  }
+  &__item-title {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  &__item-buttons {
+    button {
+      background-color: inherit
+    }
+    @include flex(row, nowrap);
+    align-items: center;
+  }
+  &__item-name {
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  &__quantity-container {
+    padding-right: .5em;
+    font-size: .9em;
+  }
+  &__item-quantity {}
+  &__item-updates {
+    button {
+      background-color: inherit
+    }
+    @include flex(column, nowrap);
+    max-width: 30px;
+  }
+  &__item-update {
+    &--add {}
+    &--subtract {}
+  }
+  &__item-remove {}
+  &__summary {
+    @include flex(column, wrap);
+    position: absolute;
+    padding: 1em 2em;
+    background-color: $contentBackgroundColor;
+    bottom: 0px;
+    box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.3);
+    justify-content: space-between;
+    left: 0px;
+    width: 100%;
+  }
+  &__price-container {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding-bottom: .75em;
+  }
+  &__total{
+    h1 {
+      line-height: 1em;
+      margin: 0;
+    }
+  }
+  &__price{
+    h2 {
+      line-height: 1em;
+      font-size: 1.1em;
+      margin: 0;
+    }
+  }
+  &__item-none{
+    display: block;
+    padding-top: 1em;
+  }
+  &__checkout {}
+}

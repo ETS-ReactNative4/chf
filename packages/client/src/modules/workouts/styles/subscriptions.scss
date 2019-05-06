@@ -1,0 +1,131 @@
+.subscriptions {
+  padding: 25px;
+  color: #000000;
+  background: #F7F7F7;
+  width: 100%;
+  @media (min-width: 768px) {
+    padding-top: 2.12em;
+    padding-bottom: 3.8em;
+  }
+}
+
+.subscriptions-intro {
+  font-size: .9em;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+  &__header {
+    font-size: $baseHeaderSize;
+    margin-bottom: .7em;
+    letter-spacing: normal;
+    line-height: initial;
+    font-weight: 300;
+  }
+  &__top {
+    @extend %text-shared;
+    margin-bottom: 2.0em;
+    @media (min-width: 768px) {
+      margin-bottom: 2.52em;
+    }
+  }
+  &__bottom {
+    @extend %text-shared;
+    margin-bottom: 3.01em;
+  }
+}
+
+.subscription-card-wrapper {
+  font-size: .8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media (min-width: 576px) {
+    font-size: 1em;
+  }
+  @media (min-width: 1050px) {
+    flex-direction: row;
+  }
+}
+
+.subscription-card {
+  display: grid;
+  grid-template-areas: 'content'
+                       'button';
+  grid-row-gap: 2.09em;
+  justify-items: center;
+  margin-bottom: 40px;
+  &:last-child {
+    margin-right: 0;
+  }
+  @media (min-width: 1050px) {
+    margin-right: 5%;
+  }
+}
+
+.subscription-card-content {
+  grid-area: content;
+  height: 22.5em;
+  width: 21.21em;
+  padding: 20px;
+  text-align: center;
+  background: #E5E5E5;
+  box-shadow: 6.92px 4.6px #C3C3C5;
+  &__header {
+    font-size: $baseHeaderSize;
+    display: inline-block;
+    position: relative;
+  }
+  &__header-super {
+    font-size: .6em;
+    vertical-align: text-top;
+    display: inline-block;
+    margin-top: .19em;
+  }
+  &__header-sub {
+    font-size: .33em;
+    font-weight: 300;
+    position: absolute;
+    right: -.5em;
+    top: 2.8em;
+  }
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 12.9em;
+    width: 14.9em;
+    padding: 1.25em;
+    margin: 3.25em auto 0;
+    background: #f7f7f7;
+  }
+  &__sub-header {
+    font-size: 1.9em;
+    padding-bottom: .43em;
+    margin-bottom: .43em;
+    position: relative;
+    line-height: 1.2em;
+    &:before {
+     @extend %center-with-absolute;
+     @extend %baseline;
+    }
+  }
+  &__text {
+    @extend %text-shared;
+    position: relative;
+    bottom: 10px;
+  }
+  &__sub-text {
+    font-size: 1.13em;
+    font-weight: 300;
+  }
+  &__button {
+    background: #fc7b18;
+    border-radius: 6px;
+    color: #fff;
+    @extend %workouts-btn;
+    grid-area: button;
+  }
+}

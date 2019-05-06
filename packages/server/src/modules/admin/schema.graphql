@@ -1,0 +1,57 @@
+extend type Query {
+  pages: [Page]
+  page(id: ID, pageTitle: String): Page
+  vendorData(handle: String): VendorData
+  collectionData(handle: String): CollectionData
+}
+type SeoContent {
+  handle: String
+  title: String
+  description: String
+  keywords: String
+}
+type VendorData {
+  id: Int
+  seo: SeoContent
+}
+type CollectionData {
+  id: Int
+  seo: SeoContent
+}
+type Field {
+  section_name: String
+  field_name: String
+  field_label: String
+  field_type: String
+  field_value: String
+}
+
+type Page {
+  id: ID!
+  title: String
+  name: String
+  fields(field_names: [[String]]): [Field]
+}
+type S3Payload {
+  signedRequest: String!
+  url: String!
+}
+extend type Mutation {
+  # S3 signedRequest
+  signS3(filename: String!, filetype: String!): S3Payload!
+  uploadPageContent(pageContent: PageContentInput): [Field]
+  uploadSeo(path: String!, handle: String!, seo: SeoInput!): SeoContent
+}
+input FieldInput {
+  section_name: String
+  field_name: String
+  field_label: String
+  field_type: String
+  field_value: String
+}
+input PageContentInput {
+  page_id: Int
+  content: [FieldInput]
+}
+
+#extend type Subscription {}

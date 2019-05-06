@@ -1,0 +1,6 @@
+fragment ProductAttributesFull on Product {
+  attributes {
+    name
+    info
+  }
+}

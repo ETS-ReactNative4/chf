@@ -1,0 +1,16 @@
+#import "./Product.graphql"
+query products($limit: Int!, $after: Int) {
+  products(limit: $limit, after: $after) {
+    total_count
+    edges {
+      cursor
+      node {
+        ...ProductFull
+      }
+    }
+    product_info {
+      end_cursor
+      has_next_page
+    }
+  }
+}

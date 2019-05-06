@@ -1,0 +1,58 @@
+@import '../utils/index';
+
+.low-price-banner {
+  position: relative;
+  margin-bottom: 10em;
+  @media (min-width: $screenSmall) {
+    margin-bottom: 5em;
+  }
+  @media (min-width: $screenLarge) {
+    margin-bottom: 0em;
+  }
+  &__text {
+    position: absolute;
+    color: $white;
+    font-size: 12px;
+    left: 50%;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    @media (min-width: $screenSmall) {
+      font-size: 14px;
+    }
+    @media (min-width: $screenMedium) {
+      font-size: 16px;
+    }
+    &--upper,
+    &--lower {
+      line-height: normal;
+    }
+    &--upper,
+    &--lower {
+      line-height: normal;
+    }
+    &--upper {
+      @extend %h2;
+    }
+    &--lower {
+      @extend %h1;
+      text-transform: uppercase;
+    }
+  }
+  &__banner {}
+  &__badge {
+    @include shadow(bottom, center, 5px);
+    position: absolute;
+    max-width: 20%;
+    right: 0.5em;
+    top: 0em;
+    @media (min-width: $screenSmall) {
+      right: 2em;
+      top: 1em;
+    }
+    @media (min-width: $screenMedium) {
+      right: 3em;
+      top: 2em;
+    }
+  }
+}

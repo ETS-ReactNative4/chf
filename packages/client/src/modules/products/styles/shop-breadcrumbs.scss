@@ -1,0 +1,29 @@
+@import '../../common/components/global/styles/utils/index';
+
+.shop-breadcrumbs {
+  @extend %h4;
+  @include flex(row, wrap);
+  line-height: normal;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  &__link,
+  &__separator {
+    color: $brandPrimary;
+  }
+  &__link {
+    transition: color $animationSpeed ease-in-out;
+    &:hover {
+      color: $brandSecondary;
+    }
+  }
+  &__separator {
+    margin: 0em 0.5em;
+  }
+  &__item {
+    &:last-of-type {
+      & > .shop-breadcrumbs__separator {
+        display: none;
+      }
+    }
+  }
+}

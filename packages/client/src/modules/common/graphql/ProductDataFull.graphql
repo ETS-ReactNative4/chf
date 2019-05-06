@@ -1,0 +1,42 @@
+fragment ProductDataFull on ProductData {
+  id
+  sku
+  product_name
+  handle
+  shock_absorption
+  console
+  user_ids
+  workouts
+  hrt_monitoring
+  stride_technology
+  power
+  design
+  drive_system
+  handlebars
+  seat
+  pedals
+  frame
+  finish
+  motion
+  exercises
+  weight_stack
+  included_accessories
+  optional_weight_stack
+  running_area
+  motor
+  speed
+  incline
+  resistance_levels
+  resistance_system
+  stride
+  max_user_weight
+  ramp
+  stored_vertical_height
+  seat_floor_distance
+  warranty
+  seo {
+    title
+    description
+    keywords
+  }
+}

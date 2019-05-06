@@ -1,0 +1,52 @@
+@import '../../common/components/global/styles/utils/index';
+
+.resources-view {
+  & > div {
+    &:nth-child(odd) {
+      // Changed to Adjust for Article Component
+      // background-color: $white;
+      background-color: #f7f5f5;
+    }
+    &:nth-child(even) {
+      background-color: $siteBackgroundColor;
+    }
+  }
+  &__vendor-filter {
+    margin: 0em auto;
+    width: 95vw;
+    @media (min-width: $screenSmall) {
+      width: 90vw;
+    }
+    @media (min-width: $screenMedium) {
+      width: 80vw;
+    }
+  }
+  &__phone-banner {}
+  &__popular-videos,
+  &__popular-articles {
+    margin: 0em auto 5em;
+    width: 95vw;
+    @media (min-width: $screenSmall) {
+      width: 90vw;
+    }
+  }
+  &__popular-articles {
+    @media (min-width: $screenMedium) {
+      width: 85vw;
+    }
+    @media (min-width: $screenLarge) {
+      width: 80vw;
+    }
+  }
+  &__header {}
+  &__header-sub {
+    margin: 0em auto 2em;
+    color: $brandSecondary;
+    text-align: center;
+    max-width: 70%;
+    min-width: 300px;
+    @media (min-width: $screenSmall) {
+      max-width: 50%;
+    }
+  }
+}

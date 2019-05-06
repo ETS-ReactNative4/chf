@@ -1,0 +1,6 @@
+@import '../utils/index';
+
+.article-image-grid {
+  @include flex(row, wrap);
+  justify-content: space-around;
+}

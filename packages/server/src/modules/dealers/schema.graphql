@@ -1,0 +1,62 @@
+extend type Query {
+  dealers(first: Int, after: Int): Dealers
+  dealerByHandle(handle: String): Dealer
+}
+
+type Dealer {
+  id: ID
+  handle: String
+  name: String
+  street: String
+  suite: String
+  city: String
+  zip: String
+  state: String
+  country: String
+  email: String
+  phone: String
+  website: String
+  lat: String
+  lng: String
+  image_url: String
+  description: String
+  hours: String
+}
+type DealersEdges {
+  node: Dealer
+  cursor: Int
+}
+type DealerInfo {
+  hasNextPage: Boolean
+  end_cursor: Int
+}
+type Dealers {
+  dealers_count: Int
+  edges: [DealersEdges]
+  dealer_info: DealerInfo
+}
+#########################
+
+extend type Mutation {
+  addDealer(dealer: DealerInput): Dealer
+  updateDealer(dealer: DealerInput): Dealer
+}
+
+input DealerInput {
+  handle: String
+  name: String
+  street: String
+  suite: String
+  city: String
+  zip: String
+  state: String
+  country: String
+  email: String
+  phone: String
+  website: String
+  lat: String
+  lng: String
+  image_url: String
+  description: String
+  hours: String
+}

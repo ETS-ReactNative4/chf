@@ -1,0 +1,40 @@
+extend type Query {
+  # Vendors query
+  vendors: [Vendor]
+  # Query an individual vendor by id or name
+  vendor(input: VendorQueryInput!): Vendor
+}
+
+# Core Vendor Type
+type Vendor {
+  id: Int!
+  name: String
+  handle: String
+  logo_url: String
+  categories: [Category]
+  is_featured: Boolean
+  is_top_six: Boolean
+  top_six_position: Int
+  description: String
+  vendorData(input: VendorQueryInput): VendorData
+}
+
+# Argument type to query single vendor
+input VendorQueryInput {
+  id: Int
+  handle: String
+}
+
+extend type Mutation {
+  updateBrand(input: UpdateVendorInput): Vendor
+}
+input UpdateVendorInput {
+  id: Int!
+  name: String
+  handle: String
+  logo_url: String
+  is_featured: Boolean
+  is_top_six: Boolean
+  top_six_position: Int
+  description: String
+}

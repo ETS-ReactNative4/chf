@@ -1,0 +1,10 @@
+query admin_collections($first: Int = 100) {
+  admin_collections(first: $first) {
+    edges {
+      node {
+        title
+        handle
+      }
+    }
+  }
+}

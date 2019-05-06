@@ -1,0 +1,50 @@
+.promo-full-bg {
+  font-size: .5em;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  padding: 7.1em 6.25em;
+  overflow: hidden;
+  @media (min-width: 576px) {
+    font-size: .6em;
+  }
+  @media (min-width: 768px) {
+    font-size: .7em;
+  }
+  @media (min-width: 992px) {
+    font-size: 1em;
+  }
+  &__text-container {
+    width: 100%;
+    // @media (min-width: 768px) {
+    //   width: 70%
+    // }
+    // @media (min-width: 992px) {
+    //   width: 60%;
+    // }
+    // @media (min-width: 1200px) {
+    //   width: 40%;
+    // }
+  }
+  &__header {
+    font-size: $baseHeaderSize;
+    margin-bottom: .81em;
+    letter-spacing: normal;
+    line-height: initial;
+  }
+  &__text {
+    @extend %text-shared;
+    color: #F7F7F7;
+    margin-bottom: 2.6em;
+  }
+  &__button {
+    background: #fc7b18;
+    border-radius: 6px;
+    color: #fff;
+    @extend %workouts-btn;
+    font-size: 2em;
+    @media (min-width: 768px) {
+      font-size: 1.63rem;
+    }
+  }
+}

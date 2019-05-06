@@ -1,0 +1,57 @@
+@import '../utils/index';
+
+.category-grid {
+  @include flex(row, wrap);
+  margin: 0em auto 3em;
+  justify-content: flex-start;
+  &--xsmall {
+    padding: 0em 5vw;
+    justify-content: center;
+    .category-grid {
+      &__link {
+        flex-basis: calc(100% - 2em);
+      }
+    }
+  }
+  &--small {
+    padding: 0em 5vw;
+    .category-grid {
+      &__link {
+        flex-basis: calc(50% - 2em);
+      }
+    }
+  }
+  &--medium {
+    padding: 0em 10vw;
+    .category-grid {
+      &__link {
+        flex-basis: calc(33.33% - 2em);
+      }
+    }
+  }
+  &--large {
+    padding: 0em 15vw;
+    .category-grid {
+      &__link {
+        flex-basis: calc(25% - 2em);
+      }
+    }
+  }
+  &__link {
+    margin: 1em;
+    &:hover {
+      .category-grid {
+        &__image {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  &__image {
+    transition: transform $animationSpeed ease-in-out;
+  }
+  &__title {
+    text-align: center;
+    word-break: break-word;
+  }
+}

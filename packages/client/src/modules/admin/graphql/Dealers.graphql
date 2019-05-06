@@ -1,0 +1,17 @@
+#import "./Frags/DealerFrag.graphql"
+
+query dealers($first: Int, $after: Int) {
+  dealers(first: $first, after: $after) {
+    dealers_count
+    edges {
+      node {
+        ...DealerDataFrag
+      }
+      cursor
+    }
+    dealer_info {
+      hasNextPage
+      end_cursor
+    }
+  }
+}

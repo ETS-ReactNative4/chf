@@ -1,0 +1,7 @@
+#import "./Product.graphql"
+
+query product($product_name: String!) {
+  product(product_name: $product_name) {
+    ...ProductInfo
+  }
+}

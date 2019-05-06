@@ -1,0 +1,16 @@
+@import '../../common/components/global/styles/utils/index';
+
+.workouts-view {
+  background: #E5E5E5;
+  position: relative;
+  letter-spacing: normal;
+  color: #F7F7F7;
+  @import 'common-variables-utils';
+  @import 'video-promo';
+  @import 'app-features';
+  @import 'app-store-links';
+  @import 'workout-types';
+  @import 'subscriptions';
+  @import 'promo-split-bg';
+  @import 'promo-full-bg';
+}

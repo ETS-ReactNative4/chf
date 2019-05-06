@@ -1,0 +1,17 @@
+@import '../utils/index';
+
+.page-breadcrumbs {
+  padding: 2em 3em;
+  color: $brandSecondary;
+  &__link {
+    color: $brandSecondary;
+    &:hover {
+      color: $brandPrimary;
+      transition: color $animationSpeed ease-in-out;
+    }
+  }
+  &__separator {
+    margin: 0em 0.5em;
+  }
+  &__current {}
+}

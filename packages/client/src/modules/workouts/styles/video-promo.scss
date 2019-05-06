@@ -1,0 +1,63 @@
+.video-promo {
+  position: relative;
+  height: 38.38em;
+  overflow: hidden;
+  font-size: .45em;
+  &__video-container {
+    @extend %fill-container;
+    object-fit: cover;
+  }
+  &__overlay {
+    @extend %fill-container;
+    position: absolute;
+    top: 0;
+    background: hsla(0, 0%, 0%, .3);
+  }
+  @media (min-width: 400px) {
+    font-size: .6em;
+  }
+  @media (min-width: 576px) {
+    font-size: .75em;
+  }
+  @media (min-width: 768px) {
+    font-size: .9em;
+  }
+  @media (min-width: 992px) {
+    font-size: 1em;
+  }
+}
+
+.video-promo-content {
+  @extend %fill-container;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  &__header {
+    font-size: 4em;
+    margin-bottom: .55em;
+    font-weight: bold;
+    letter-spacing: normal;
+  }
+  &__text {
+    font-size: 2em;
+    margin-bottom: 1.42em;
+    font-weight: 300;
+    line-height: initial;
+    width: 70%;
+    @media (min-width: 576px) {
+      font-size: 1.86em;
+    }
+  }
+  &__image-container {
+    height: 4.1em;
+    width: 4.1em;
+    background-color: #000000;
+    padding: .4em;
+    border-radius: .63em;
+  }
+}

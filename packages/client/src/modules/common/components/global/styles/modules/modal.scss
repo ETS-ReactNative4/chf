@@ -1,0 +1,59 @@
+@import '../utils/index';
+
+.modal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0em;
+  height: 100vh;
+  left: 0em;
+  opacity: 0; // sass-lint:disable-line zero-unit
+  overflow: hidden;
+  top: 0em;
+  right: 0em;
+  width: 100vw;
+  visibility: hidden;
+  z-index: -1;
+  &--open {
+    opacity: 1;
+    transition: opacity $animationSpeed ease-in-out;
+    visibility: visible;
+    z-index: 9999;
+  }
+  &__close {
+    position: absolute;
+    padding: .5em 0em;
+    right: .5em;
+    top: 0em;
+    &:hover {
+      cursor: pointer;
+    }
+    @include sm {
+      padding: 1em;
+      right: 1em;
+    }
+  }
+  &__close-icon {
+    path {
+      fill: $white;
+    }
+  }
+  &__content {
+    @include sm {
+      width: 70vw;
+    }
+    @include md {
+      width: 60vw;
+    }
+    &--transparent {
+      background-color: transparent;
+    }
+    position: absolute;
+    background-color: $white;
+    left: 50%;
+    max-height: calc(100vh - 2em);
+    overflow-y: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+  }
+}

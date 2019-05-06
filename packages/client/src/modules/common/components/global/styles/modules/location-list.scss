@@ -1,0 +1,106 @@
+@import '../utils/index';
+
+.location-list {
+  $locationList: &;
+  background-color: $siteBackgroundColor;
+  &--small {
+    #{$locationList} {
+      &__item {
+        padding: 1em 1em;
+      }
+      &__arrow {
+        right: 1.5em;
+      }
+    }
+  }
+  &--medium {
+    #{$locationList} {
+      &__item {
+        padding: 1em 2em;
+      }
+      &__arrow {
+        right: 1.5em;
+      }
+    }
+  }
+  &--large {
+    #{$locationList} {
+      &__item {
+        padding: 1em 3em;
+      }
+      &__arrow {
+        right: 2.5em;
+      }
+    }
+  }
+  &__item {
+    @include flex(row, nowrap);
+    position: relative;
+    padding: 1em 1em;
+    background-color: transparent;
+    border-bottom: 1px solid $gray;
+    cursor: pointer;
+    justify-content: flex-start;
+    overflow: hidden;
+    width: 100%;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+
+    &:before {
+      display: block;
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      width: 0%;
+      padding-top: 0px;
+      border-radius: 100%;
+      background-color: rgba($brandSecondary, .2);
+      transform: translate(-50%, -50%);
+      transition: width .2s ease-out, padding-top .2s ease-out;
+    }
+    &:active,
+    &--selected {
+      &:before {
+        padding-top: 120%;
+        width: 120%;
+      }
+    }
+  }
+  &__address {
+    color: $brandSecondary;
+    text-align: left;
+  }
+  &__address-header {
+    text-transform: uppercase;
+  }
+  &__arrow {
+    $arrowSize: 1.25em;
+    position: absolute;
+    margin: 1em;
+    align-self: center;
+    border-right: 1.5px solid $brandSecondary;
+    border-top: 1.5px solid $brandSecondary;
+    height: $arrowSize;
+    right: 0.5em;
+    transform: rotate(45deg);
+    width: $arrowSize;
+  }
+  &__icon {
+    &--pin {
+      position: relative;
+      margin: 0em 1em;
+      align-self: flex-start;
+      top: 0.5em;
+    }
+    &--arrow {
+      align-self: center;
+    }
+    path {
+      color: $brandSecondary;
+    }
+  }
+}

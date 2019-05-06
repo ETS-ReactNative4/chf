@@ -1,0 +1,10 @@
+@import './utils/index';
+
+.admin {
+  &__location {
+    &__form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

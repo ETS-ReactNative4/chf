@@ -1,0 +1,33 @@
+#import "./ProductLayout.graphql"
+#import "./ProductSeo.graphql"
+#import "./ProductAttributes.graphql"
+#import "./ProductRelatedProducts.graphql"
+
+fragment ProductFull on Product {
+  id
+  name
+  short_description
+  sub_categories
+  category
+  category_id
+  location_id
+  sub_category
+  price
+  images
+  image
+  quantity
+  weight
+  width
+  height
+  length
+  tax_class
+  location
+  manufacturer
+  manufacturer_id
+  sku
+  upc
+  ...ProductLayoutFull
+  ...ProductSeoFull
+  ...ProductAttributesFull
+  ...ProductRelatedProductsFull
+}

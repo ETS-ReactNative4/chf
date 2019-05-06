@@ -1,0 +1,11 @@
+mutation customerCreate($input: sfy_CustomerCreateInput!) {
+  sfy_customerCreate(input: $input) {
+    userErrors {
+      field
+      message
+    }
+    customer {
+      id
+    }
+  }
+}

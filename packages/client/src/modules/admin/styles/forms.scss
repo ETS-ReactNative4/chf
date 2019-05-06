@@ -1,0 +1,40 @@
+@import './utils/index';
+
+.admin {
+  &__form {
+    &__seo {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% - 33%);
+      &--field {
+        position: relative;
+        margin-bottom: 30px;
+        textarea {
+          width: 100%;
+          height: 100px;
+          height: stretch;
+          max-height: 200px;
+        }
+      }
+      &--description {
+        width: 100%;
+        position: relative;
+
+        textarea {
+          width: 100%;
+          height: 200px;
+          height: stretch;
+          max-height: 200px;
+        }
+      }
+      &--input {
+        border: solid;
+      }
+      &--error {
+        position: absolute;
+        right: 0;
+        color: #DB3A34;
+      }
+    }
+  }
+}

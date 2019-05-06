@@ -1,0 +1,76 @@
+@import '../utils/index';
+
+.location-search {
+  @include flex(column, wrap);
+  padding: 1em 1em 0em;
+  align-items: center;
+  background-color: $brandSecondary;
+
+  &__input-container {
+    @include flex(row, nowrap);
+    position: relative;
+    background-color: $white;
+    justify-content: space-between;
+    width: 85%;
+    z-index: 50;
+  }
+  &__input {
+    position: relative;
+    padding: 0.5em;
+    padding-left: 2.5em;
+  }
+  &__icon {
+    &--arrow {
+      margin-right: 0.5em;
+    }
+    &--pin {
+      position: absolute;
+      left: 1.25em;
+      align-self: center;
+      transform: translateX(-50%);
+      z-index: 60;
+      path {
+        color: $brandSecondary;
+      }
+    }
+    &--search {
+      vertical-align: middle;
+      path {
+        color: darken($gray, 10);
+        transition: color $animationSpeed ease-in-out;
+      }
+      &:hover {
+        path {
+          color: $brandSecondary;
+        }
+      }
+    }
+  }
+  &__input-icon {
+    width: 3em;
+    &:before {
+      position: absolute;
+      content: "";
+      background-color: darken($gray, 10);
+      height: 80%;
+      top: 50%;
+      right: 2.5em;
+      transform: translateY(-50%);
+      width: 1px;
+    }
+    &:hover {
+      cursor: default;
+      &:after {
+        // TODO: Add tooltip to press enter to search
+      }
+    }
+  }
+  &__submit {
+    padding: 1em 3em;
+    background-color: transparent;
+    color: $white;
+    path {
+      color: $white;
+    }
+  }
+}

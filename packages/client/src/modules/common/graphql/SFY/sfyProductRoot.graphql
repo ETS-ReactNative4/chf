@@ -1,0 +1,15 @@
+fragment RootInfo on sfy_Product {
+  id
+  handle
+  title
+  vendor
+  availableForSale
+  productType
+  createdAt
+  publishedAt
+  updatedAt
+  tags
+  description
+  descriptionHtml
+  onlineStoreUrl
+}

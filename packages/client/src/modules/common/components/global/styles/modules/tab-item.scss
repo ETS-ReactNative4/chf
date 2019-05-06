@@ -1,0 +1,46 @@
+@import '../utils/index';
+
+.tab-item {
+  ul {
+    margin-left: 1em;
+  }
+  @include xs {
+    display: block;
+    padding: 0em 1.5em 1.5em 1.5em;
+    margin-bottom: 1em;
+    &:last-of-type {
+      margin-bottom: 0em;
+      border-bottom: none;
+    }
+  }
+  @include md {
+    position: absolute;
+    padding: 1.5em 3em;
+    // height: 100%;
+    top: 0em;
+    left: 0em;
+    margin-bottom: 0em;
+    background-color: $contentBackgroundColor;
+    opacity: 0; // sass-lint:disable-line zero-unit
+    visibility: hidden;
+    width: 100%;
+    z-index: -1;
+    &--active {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__name {
+    @extend %h4;
+    @include xs {
+      display: block;
+      line-height: 1.5em;
+      border-bottom: 1px solid $brandSecondary;
+      margin-bottom: .5em;
+    }
+    @include md {
+      display: none;
+    }
+  }
+}

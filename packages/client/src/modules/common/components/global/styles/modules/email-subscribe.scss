@@ -1,0 +1,19 @@
+@import '../utils/index';
+
+.email-subscribe {
+  @include flex(row);
+  &__input {
+    background-color: $white;
+    flex-basis: 90%;
+  }
+  &__submit {
+    position: relative;
+    padding: 15px;
+    flex-basis: 10%;
+    width: 50px;
+    svg {
+      @include absoluteCenter;
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import '../utils/index';
+
+.link-list {
+  list-style: none;
+  &__item {
+  }
+  &__link {
+    @include animateUnderline($linkColor);
+    display: block;
+    padding: 0.25em 1em 0.25em 0em;
+  }
+}

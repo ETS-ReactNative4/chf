@@ -1,0 +1,8 @@
+mutation updateProductSeo($seo: SeoInput!) {
+  updateProductSeo(seo: $seo) {
+    handle
+    title
+    description
+    keywords
+  }
+}

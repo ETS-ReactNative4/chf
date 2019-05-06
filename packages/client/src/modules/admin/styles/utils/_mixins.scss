@@ -1,0 +1,167 @@
+// Display mixins
+// Example:
+// @include md {
+//   ...styles
+// }
+// Output:
+// @media (min-width: $screenMedium) {
+//   ...styles
+// }
+@mixin xs {
+  @media (min-width: $screenXSmall) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: $screenSmall) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: $screenMedium) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: $screenLarge) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: $screenXLarge) {
+    @content;
+  }
+}
+@mixin retina {
+  @media only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+      @content;
+  }
+}
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+@mixin lineHeight($font-size) {
+  line-height: calc(#{$font-size} * 1.618);
+}
+
+@mixin absoluteCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// flex([row, column])
+// Example:
+// @include flex(row)
+// Creates:
+// display: flex
+// flex-direction: row
+//
+@mixin flex($direction: row, $wrap: nowrap) {
+  @if $direction == "column" or $direction == "row" {
+    @if $wrap == "nowrap" or $wrap == "wrap" or $wrap == "wrap-reverse" {
+      display: flex;
+      flex-direction: $direction;
+      flex-wrap: $wrap;
+    } @else {
+      @error "`#{$wrap}` is not a wrapping method. Must be 'nowrap', 'wrap', or 'wrap-reverse'.";
+    }
+  }
+  @else {
+    @error "`#{$direction}` is not a valid direction. Must be 'column' or 'row'.";
+  }
+}
+
+// shadow([bottom, middle, top], [right, center, left], {number in px})
+// Example:
+// @include shadow(bottom, center, 10px)
+// Creates:
+// box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5)
+//
+@mixin shadow($verticalPosition: middle, $horizontalPosition: center, $blurRadius: 15px) {
+  $yPos: 0px !default;
+  $xPos: 0px !default;
+  @if $verticalPosition == 'bottom' {
+    $yPos: calc(#{$blurRadius} / 4 + 5px);
+  } @else if $verticalPosition == 'middle' {
+    $yPos: 0px;
+  } @else if $verticalPosition == 'top' {
+    $yPos: -#{$blurRadius};
+  } @else {
+    @error "`#{$verticalPosition}` is not a vertical option. Must be 'bottom', 'middle', or 'top'.";
+  }
+
+  @if $horizontalPosition == 'right' {
+    $xPos: $blurRadius;
+  } @else if $horizontalPosition == 'center' {
+    $xPos: 0px;
+  } @else if $horizontalPosition == 'left' {
+    $xPos: -#{$blurRadius};
+  } @else {
+    @error "`#{$horizontalPosition}` is not a horizontal option. Must be 'left', 'right', or 'center'.";
+  }
+
+  @if is-number($blurRadius) and index('cm' 'mm' 'in' 'px' 'pt' 'pc', unit($blurRadius)) != null {
+  } @else {
+    @error "`#{$blurRadius}` is not a pixel value. Number must be in `px`";
+  }
+  box-shadow: $xPos $yPos $blurRadius rgba(0, 0, 0, 0.2);
+}
+
+// animateUnderline({color})
+// Example:
+// @include animateUnderline(#9611ff)
+//
+@mixin animateUnderline($color: $brandSecondary) {
+  @if type-of($color) == 'color' {
+    &:before {
+      position: absolute;
+      background-color: $color;
+      bottom: 0px;
+      content: ' ';
+      height: 2px;
+      left: 0px;
+      transform: scaleX(0);
+      transition: transform $linkAnimationSpeed ease-in-out 0s;
+      visibility: hidden;
+      width: 100%;
+    }
+    &:hover {
+      &:before {
+        transform: scaleX(1);
+        visibility: visible;
+      }
+    }
+  } @else {
+    @error "`#{$color}` is not a color. Must input a color.";
+  }
+}
+
+@mixin animateSize($scale: 1.1) {
+  @if type-of($scale) == 'number' {
+    transform: scale(1);
+    &:hover {
+      transform: scale($scale);
+      transition: transform $cardAnimationSpeed ease-in-out;
+    }
+  } @else {
+    @error "`#{$scale}` is not a number. Must input a number."
+  }
+}
+
+@mixin animateBeat($startAngle: -20deg, $endAngle: -25deg) {
+  animation: beat 1s ease infinite alternate;
+  @keyframes beat {
+    from {
+      transform: rotate(#{$startAngle}) scale(1);
+  	} to {
+      transform: rotate(#{$endAngle}) scale(1.1);
+  	}
+  }
+
+}

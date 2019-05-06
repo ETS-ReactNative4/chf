@@ -1,0 +1,10 @@
+a {
+  position: relative;
+  color: $linkColor;
+  transition: all $linkAnimationSpeed ease-in-out;
+  &:hover {
+    color: $linkColor;
+    // color: darken($color, 10%);
+    text-decoration: none;
+  }
+}

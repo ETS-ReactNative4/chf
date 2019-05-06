@@ -1,0 +1,107 @@
+@import '../utils/index';
+
+.tab-container {
+  @include flex(column, nowrap);
+  position: relative;
+  // TODO: Add Function
+  &__button {
+    $button: &;
+    &:first-child {
+      &:only-child {
+        width: 100%;
+      }
+      &:nth-last-child(2),
+      &:nth-last-child(2) ~ #{$button} {
+        width: 50%;
+      }
+      &:nth-last-child(3),
+      &:nth-last-child(3) ~ #{$button} {
+        width: 33.3%;
+      }
+      &:nth-last-child(4),
+      &:nth-last-child(4) ~ #{$button} {
+        width: 25%;
+      }
+      &:nth-last-child(5),
+      &:nth-last-child(5) ~ #{$button} {
+        width: 20%;
+      }
+      &:nth-last-child(6),
+      &:nth-last-child(6) ~ #{$button} {
+        width: 16.6%;
+      }
+    }
+  }
+  &__buttons {
+    @include xs {
+      display: none;
+    }
+    @include md {
+      @include flex(row, wrap);
+      margin-bottom: 1em;
+    }
+  }
+  &__button {
+    @include xs {
+      display: none;
+    }
+    @include md {
+      display: block;
+      padding: 1em 1.5em;
+      border-left: 1px solid rgba(29, 40, 130, .1);
+      background-color: $contentBackgroundColor;
+      color: $brandSecondary;
+      transition: background-color $animationSpeed ease-in-out, color $animationSpeed ease-in-out;
+      &:last-of-type {
+        margin-right: 0em;
+      }
+      &:after {
+        position: absolute;
+        border-color: $contentBackgroundColor;
+        border-style: solid;
+        border-width: 0.5em;
+        content: '';
+        bottom: -0.5em;
+        left: 50%;
+        transform: translateX(-50%) rotate(-45deg);
+        transition: border-color $animationSpeed ease-in-out;
+      }
+      &:hover,
+      &:focus {
+        color: $white;
+      }
+      &:hover {
+        background-color: lighten($brandSecondary, 10);
+        &:after {
+          border-color: lighten($brandSecondary, 10);
+        }
+      }
+      &--active {
+        background-color: $brandSecondary;
+        color: $white;
+        &:after {
+          border: 0.5em solid $brandSecondary;
+        }
+        &:hover {
+          background-color: $brandSecondary;
+          color: $white;
+          &:after {
+            border: 0.5em solid $brandSecondary;
+          }
+        }
+      }
+    }
+    position: relative;
+  }
+  &__items {
+    @include xs {
+      padding: 1em;
+      background-color: $contentBackgroundColor;
+    }
+    @include md {
+      padding: 0em;
+      background-color: transparent;
+    }
+    position: relative;
+  }
+}

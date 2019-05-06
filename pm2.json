@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "CHF-R_Comm",
+      "kill_timeout": 3000,
+      "restart_delay": 3000,
+      "script": "yarn",
+      "args": "start"
+    }
+  ]
+}

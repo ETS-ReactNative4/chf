@@ -1,0 +1,34 @@
+/* Common Variables */
+$baseHeaderSize: 3.38em;
+
+/* Common Placeholders */
+%fill-container {
+  height: 100%;
+  width: 100%;
+}
+
+%workouts-btn {
+  font-size: 1.63rem;
+  height: 1.85em;
+  width: 8.38em;
+}
+
+%text-shared {
+  font-size: 1.38em;
+  font-weight: 300;
+}
+
+%fill-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Common Selectors / Classes */
+img {
+  @extend %fill-container;
+}
+
+.bolded-orange-text {
+  font-weight: bold;
+  color: #fc7b18;
+}

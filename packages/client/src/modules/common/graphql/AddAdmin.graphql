@@ -1,0 +1,15 @@
+mutation addAdmin($input: AddUserInput!) {
+  addAdmin(input: $input) {
+    user {
+      id
+      role
+      email
+      first_name
+      last_name
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

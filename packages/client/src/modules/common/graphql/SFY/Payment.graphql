@@ -1,0 +1,7 @@
+fragment PaymentInfo on sfy_Checkout {
+  paymentDue
+  subtotalPrice
+  taxesIncluded
+  totalPrice
+  totalTax
+}

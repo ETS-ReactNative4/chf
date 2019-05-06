@@ -1,0 +1,9 @@
+@import '../../common/components/global/styles/utils/index';
+
+.map {
+  &__map-element {
+    img {
+      max-width: 20px;
+    }
+  }
+}

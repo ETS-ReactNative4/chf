@@ -1,0 +1,11 @@
+query collectionSeo($handle: String) {
+  collectionData(handle: $handle) {
+    id
+    seo {
+      handle
+      title
+      description
+      keywords
+    }
+  }
+}

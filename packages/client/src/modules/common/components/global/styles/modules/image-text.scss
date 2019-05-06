@@ -1,0 +1,52 @@
+@import '../utils/index';
+
+.image-text {
+  @include flex(column, nowrap);
+  &__content {
+    padding: 2em;
+    color: $brandSecondary;
+    &--top {
+      order: -1;
+    }
+    &--bottom {
+      order: 0; // sass-lint:disable-line zero-unit
+    }
+  }
+  &__image {
+    $imageRoot: &;
+    position: relative;
+    &--top {
+      order: -1;
+    }
+    &--bottom {
+      order: 0; // sass-lint:disable-line zero-unit
+    }
+    &--over {
+      @include md {
+        width: calc(100% + 15%);
+      }
+      width: 100%;
+      &-right {
+        &#{$imageRoot}--shadow {
+          @include shadow(bottom, right, 10px);
+        }
+        right: 0%;
+      }
+      &-left {
+        &#{$imageRoot}--shadow {
+          @include shadow(bottom, left, 10px);
+        }
+        @include md {
+          left: -15%;
+        }
+      }
+    }
+  }
+  &__text {
+    display: inline;
+  }
+  &__header {
+    @extend %h2;
+    line-height: normal;
+  }
+}

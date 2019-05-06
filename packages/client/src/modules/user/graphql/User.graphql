@@ -1,0 +1,28 @@
+fragment UserInfo on User {
+  id
+  username
+  role
+  is_active
+  email
+  #  auth {
+  #    certificate {
+  #      serial
+  #    }
+  #    facebook {
+  #      fbId
+  #      displayName
+  #    }
+  #    google {
+  #      googleId
+  #      displayName
+  #    }
+  #    github {
+  #      ghId
+  #      displayName
+  #    }
+  #    linkedin {
+  #      lnId
+  #      displayName
+  #    }
+  #  }
+}

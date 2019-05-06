@@ -1,0 +1,49 @@
+// TODO: Implement native css variables
+
+// Brand colors
+$brandPrimary: #FC7B18 !default;
+$brandSecondary: #1D2870 !default;
+// $brandTertiary:
+// $brandQuaternary:
+
+// Colors
+$gray: #E8E8E8 !default;
+$grayDark: darken($gray, 10);
+$grayDarker: darken($gray, 20);
+$grayDarkest: darken($gray, 30);
+$white: #FCFCFC !default;
+
+// Background colors
+$siteBackgroundColor: #F9F9F9 !default;
+$contentBackgroundColor: #F9F9F9 !default;
+$headerBackgroundColor: transparent !default;
+$footerBackgroundColor: #F7F5F5 !default;
+
+// Font Colors
+$linkColor: $brandSecondary;
+
+// Alert Colors
+$infoColor: #DAEDF6 !default;
+$successColor: #DFF0D9 !default;
+$warningColor: #FCF8E4 !default;
+$errorColor: #F1DEDE !default;
+
+// Fonts
+$fontPrimary: 'Roboto', sans-serif;
+$fontSecondary: 'Roboto Condensed', sans-serif;
+
+// Screen Sizes
+// TODO: Decide on final breakpoints
+$screenXSmall: 320px;
+$screenSmall: 600px;
+$screenMedium: 900px;
+$screenLarge: 1200px;
+$screenXLarge: 1440px;
+
+// Element Sizes
+$headerHeight: 80px !default;
+
+// Animation Speeds
+$animationSpeed: 350ms !default;
+$linkAnimationSpeed: calc(#{$animationSpeed} / 2);
+$cardAnimationSpeed: calc(#{$animationSpeed} * 2);

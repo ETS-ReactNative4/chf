@@ -1,0 +1,42 @@
+@import '../utils/index';
+
+.phone-banner {
+  position: relative;
+  // Margin-bottom Removed, margin-top and padding-bottom Added to Adjust for Article Component
+  // margin-bottom: 7.5em;
+  margin-top: 140px;
+  padding-bottom: 60px;
+  transition: margin $animationSpeed ease-in;
+  // Added to Adjust for Article Component
+  @media (min-width: $screenMedium) {
+    padding-bottom: 200px;
+  }
+  // Removed to Adjust for Article Component
+  // @media (min-width: $screenSmall) {
+    // margin-bottom: 0em;
+  // }
+  &__banner {
+    // Added height to Adjust for Article Component
+    height: 175px;
+    @media (min-width: $screenMedium) {
+      height: auto;
+    }
+  }
+  &__phone {
+    position: absolute;
+    max-width: 150px;
+    // Changed top to Adjust for Article Component
+    // top: -2.5em;
+    top: -3.5em;
+    right: 2.5%;
+    @media (min-width: $screenMedium) {
+      max-width: 200px;
+      right: 5%;
+      // Added top to Adjust for Article Component
+      top: -5.5em;
+    }
+    @media (min-width: $screenLarge) {
+      max-width: 250px;
+    }
+  }
+}

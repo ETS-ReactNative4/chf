@@ -1,0 +1,41 @@
+@import '../utils/index';
+
+.badge {
+  position: absolute;
+  &--sale {
+    $badgeSize: 2.5em;
+    $badgeHalf: calc(#{$badgeSize} / 2);
+    $startAngle: -20deg;
+    $endAngle: -25deg;
+    @include animateBeat(#{$startAngle}, #{$endAngle});
+    display: inline-block;
+    background-color: $brandPrimary;
+    color: $white;
+    font-size: 0.75em;
+    height: $badgeSize;
+    left: calc(#{$badgeHalf} + 1.25em);
+    line-height: $badgeSize;
+    text-align: center;
+    top: calc(#{$badgeHalf} + 1.25em);
+    transform: rotate(#{$startAngle});
+    vertical-align: middle;
+    width: $badgeSize;
+    &:before,
+    &:after {
+      position: absolute;
+      background-color: inherit;
+      content: "";
+      height: inherit;
+      left: 0em;
+      top: 0em;
+      width: inherit;
+      z-index: -1;
+    }
+    &:before {
+      transform: rotate(30deg);
+    }
+    &:after {
+      transform: rotate(60deg);
+    }
+  }
+}

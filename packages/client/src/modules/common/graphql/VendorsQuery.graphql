@@ -1,0 +1,12 @@
+query vendors {
+  vendors {
+    id
+    name
+    logo_url
+    handle
+    is_featured
+    is_top_six
+    top_six_position
+    description
+  }
+}

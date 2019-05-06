@@ -1,0 +1,83 @@
+@import '../../common/components/global/styles/utils/index';
+
+.home-view {
+  margin-top: 10px;
+  background-color: $siteBackgroundColor;
+  &__header {
+    @extend %h1;
+    line-height: normal;
+  }
+  &__content-container {
+    @include shadow(bottom, center, 20px);
+    margin: 0em auto 3em;
+    width: 90vw;
+
+    & > div {
+      padding: 1em;
+      &:nth-child(odd) {
+        background-color: $white;
+      }
+      &:nth-child(even) {
+        background-color: $siteBackgroundColor;
+      }
+      @media (min-width: $screenSmall) {
+        padding: 2em;
+      }
+    }
+    @media (min-width: $screenSmall) {
+      width: 85vw;
+    }
+    @media (min-width: $screenMedium) {
+      width: 80vw;
+    }
+  }
+  &__popular-container {}
+  &__video-container {}
+  &__image-container {
+    @include flex(row, wrap);
+    justify-content: center;
+    & > section {
+      margin-bottom: 3em;
+      flex-basis: 100%;
+      &:nth-child(odd) {
+        @media (min-width: $screenMedium) {
+          margin-right: 2em;
+        }
+      }
+      &:nth-child(even) {
+        @media (min-width: $screenMedium) {
+          margin-left: 2em;
+        }
+      }
+      &:last-of-type {
+        margin-bottom: 0em;
+      }
+      @media (min-width: $screenSmall) {
+        flex-basis: calc(50% - 0.5em);
+      }
+      @media (min-width: $screenMedium) {
+        flex-basis: calc(50% - 2em);
+      }
+    }
+  }
+  &__vendor-container {}
+  &__vendor-card {
+
+  }
+  &__vendors-link {
+    @extend %h3;
+    display: block;
+    line-height: normal;
+  }
+  &__service-slug {}
+  &__home-branding {
+    margin: 0em auto 3em;
+    width: 90vw;
+    @media (min-width: $screenSmall) {
+      width: 85vw;
+    }
+    @media (min-width: $screenMedium) {
+      width: 80vw;
+    }
+  }
+}

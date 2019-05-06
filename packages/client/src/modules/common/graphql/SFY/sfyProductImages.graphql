@@ -1,0 +1,17 @@
+fragment ProductImages on sfy_Product {
+  images(first: 10) {
+    edges {
+      cursor
+      node {
+        altText
+        id
+        originalSrc
+        transformedSrc
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
